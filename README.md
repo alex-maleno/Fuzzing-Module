@@ -36,13 +36,13 @@ We use a number of tools throughout this learning module (with download links as
 - **Sourcetrail**: A tool that can be used to get familiar with a codebase. There are two main windows within Sourcetrail - the code being looked at and a graphical interpretation of that code. By clicking on functions within the code, you can see where those functions are called in other spots throughout the codebase. 
 
 ## How to Dowload Docker
- - To download Docker, go to this link on the [Docker wesbite] (https://www.docker.com/products/docker-desktop/) and make sure 
+ - To download Docker, go to this link on the [Docker wesbite](https://www.docker.com/products/docker-desktop/) and make sure 
  you choose the correct operating system and chip. If you have a Windows, machine, those download links can be found directly
  below the download links for Mac. 
  - After the download is complete, run through the steps in the setup and open the desktop app on your computer. 
 
 ## How to Clone AFLplusplus
- - The next step is to go to the AFLplusplus [Github Repo] (https://github.com/AFLplusplus/AFLplusplus) and hit the green
+ - The next step is to go to the AFLplusplus [Github Repo](https://github.com/AFLplusplus/AFLplusplus) and hit the green
  "Code" button, and copy the HTTPS link to clone the repository. 
 - In your terminal - Terminal for Mac and PowerShell for Windows - write 
 `git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer. 
@@ -65,14 +65,14 @@ We use a number of tools throughout this learning module (with download links as
  t VM in order to run Sourcetrail. When running Sourcetrail on Windows, Sourcetrail was unable to locate the correct path
  for the code, so an alternate solution had to be employed. 
  - In order to do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare 
- with a Kali Linux image, all which can be found on the [Kali website] (https://www.kali.org/get-kali/#kali-bare-metal) with the
+ with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the
  VM download on the page just below. 
  - After this is done - run through the setup of the VM and open it up, and run the image. Then, follow the next set of
  steps in order to download Sourcetrail in your VM. 
  
 ## Sourcetrail
  - In order to download Sourcetrail, which we can use to walk through and analyze code, go to the
- [Sourcetrail github] (https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
+ [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
  with your operating system. Then run through the setup on your computer and open up the app. 
 
 ## Running AFL++
