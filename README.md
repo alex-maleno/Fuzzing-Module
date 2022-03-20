@@ -86,4 +86,4 @@ We use a number of tools throughout this learning module (with download links as
 6. make (make) the files in build
 7. /AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]
     - If you don't have a seed directory to begin with, you can populate files using the dd command, i.e. dd if=/dev/urandom of=seed_i bs=64 count=10
-    - You can read more about the dd command at this [link](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
+    - You can read more about the dd command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
