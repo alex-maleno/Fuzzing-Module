@@ -1,8 +1,0 @@
-*draft*
-
-- once everything is indexed in sourcetrail, open the project in another program like VS code so you can see the files listed out and can navigate them more easily in sourcetrail
-- Look for files dealing with inputs from an outside source	
-	- this could be sensors, GPS systems, user inputs, communication modules, etc. 
-- after finding a file that could be of interest, navigate to it in sourcetrail by looking it up
-- From this we can see the different functions inside of the file, and the inputs to those functions
-- in general, its good practice to bookmark things in soucetrail that look interesting so you can come back to it later
