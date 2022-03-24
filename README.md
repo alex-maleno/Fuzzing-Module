@@ -74,13 +74,20 @@ We use a number of tools throughout this learning module (with download links as
  our AFL++ docker container.
 
 ## Kali Linux (for Windows) - or any other virtual machine
- - For our purposes, we chose Kali Linux as our virtual macine, but any virtual machine should work here. We used 
- t VM in order to run Sourcetrail. When running Sourcetrail on Windows, Sourcetrail was unable to locate the correct path
+  - For our purposes, we chose Kali Linux as our virtual macine, but any virtual machine should work here. We used 
+ a VM in order to run Sourcetrail. When running Sourcetrail on Windows, Sourcetrail was unable to locate the correct path
  for the code, so an alternate solution had to be employed. 
  - In order to do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare 
  with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the
  VM download on the page just below. 
- - After this is done - run through the setup of the VM and open it up, and run the image. Then, follow the next set of
+	- To download the correct Kali image, make sure you are matching your computer architecture with the image you download. 
+	Under the Bare Metal header, you can choose 64 or 32-bit images. The recommended image to download is the "Installer"
+	image, which is the first one you see and is 2.8GB in size. If you want to read more about which image to download, 
+	you can read about it [here](https://www.kali.org/docs/introduction/what-image-to-download/).
+	- After downloading the correct image, scroll down on the page under the "Virtual Machines" header, and choose either the 
+	VMWare or the VirtualBox download (make sure to choose either 64 or 32 bit here as well). 
+ - After this is done - run through the setup of the VM and open it up, and run the image. After you run, you should
+ get a login screen - the default credentials to enter are a username and password of `kali`. Then, follow the next set of
  steps in order to download Sourcetrail in your VM. 
  
 ## Sourcetrail Download
@@ -100,3 +107,53 @@ We use a number of tools throughout this learning module (with download links as
 7. /AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]
     - If you don't have a seed directory to begin with, you can populate files using the dd command, i.e. dd if=/dev/urandom of=seed_i bs=64 count=10
     - You can read more about the dd command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
+
+TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
+TODO: make the links open in a separate window??
+
+# Phase I: Building Targets
+
+## On Mac
+
+TODO: building on mac and bugs to look for
+
+## On Windows
+
+When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
+the files in our targets from being indexed properly by Sourcetrail. This issue was remedied through the use of a virtual machine. 
+As mentioned previously, we used Kali Linux with VMWare/VirtualBox, however any VM should work as a solution. If you are not
+familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide. 
+
+### VirtualBox
+
+In order to open your image of Kali Linux on VirtualBox, all you have to do is follow the steps on (this website)[https://itsfoss.com/install-kali-linux-virtualbox/].
+The image of Kali Linux described earlier in the module is one of the "ready-to-use" virtual images, which means all of the correct
+settings should import as well when you import the image to VirtualBox. Make sure you are using the file with the `.ova` extension.
+After you import the image, you can hit "Import" and then after a few minutes you should see the image in the sidebar of the
+VirtualBox application. Select it, and then press the green "Start" arrow to start up the VM. 
+
+Once you are logged in, you should see a Desktop with the Kali logo in the background. In the top left corner, there is an 
+icon resembling a terminal. Open this, and follow the download steps for Sourcetrail as well as doing `git clone` for the chosen
+target(s). After the target(s) are cloned in the VM, you can build them and move forward with the steps outlined in the [Indexing 
+in Sourcetrail] (link) section
+
+### VMWare 
+
+TODO: add anything else here that is different
+
+## Indexing and Analysis in Sourcetrail
+
+- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code) so you can 
+see the files listed out and can navigate them more easily. This will allow you to glance over code and find things that would
+be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code 
+very quickly). 
+- The best way to find potential entry points in your targets is too look for files dealing with inputs from an outside source	
+	- This could look like sensors, GPS systems, user inputs, communication modules, etc. 
+- After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. After doing this, we can see the 
+different functions inside of the file, and the inputs to those functions. We can click through those things to learn more 
+about them 
+
+TODO: add more about the above bullet it sux
+
+- In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later
+
