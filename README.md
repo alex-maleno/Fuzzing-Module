@@ -10,6 +10,10 @@
 8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
 9. [Sourcetrail Download](https://github.com/alex-maleno/Fuzzing-Module#sourcetrail)
 10. [Running AFL++](https://github.com/alex-maleno/Fuzzing-Module#running-afl)
+11. [Building Targets: on Mac](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-mac)
+12. [Building Targets: on Windows](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-windows)
+13. [VirtualBox and VMWare](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#virtualbox)
+14. [Indexing and Analysis in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail)
 
 # Fuzzing-Module
 
@@ -38,6 +42,7 @@ TODO: keep adding to this as we write the module so people know what terms mean
 - **Wrapper**: A program that allows a fuzzer to interact with the desired code being fuzzed.
 - **Mutations**: New inputs from the fuzzer that are modified from previous inputs to try to get to different areas of the code
 
+# Phase 0: Setup and Software
 
 ## Tools Used
 
@@ -126,7 +131,7 @@ familiar with VMs, we will walk through using Kali Linux with VMWare and Virtual
 
 ### VirtualBox
 
-In order to open your image of Kali Linux on VirtualBox, all you have to do is follow the steps on (this website)[https://itsfoss.com/install-kali-linux-virtualbox/].
+In order to open your image of Kali Linux on VirtualBox, all you have to do is follow the steps on [this website](https://itsfoss.com/install-kali-linux-virtualbox/).
 The image of Kali Linux described earlier in the module is one of the "ready-to-use" virtual images, which means all of the correct
 settings should import as well when you import the image to VirtualBox. Make sure you are using the file with the `.ova` extension.
 After you import the image, you can hit "Import" and then after a few minutes you should see the image in the sidebar of the
@@ -135,7 +140,7 @@ VirtualBox application. Select it, and then press the green "Start" arrow to sta
 Once you are logged in, you should see a Desktop with the Kali logo in the background. In the top left corner, there is an 
 icon resembling a terminal. Open this, and follow the download steps for Sourcetrail as well as doing `git clone` for the chosen
 target(s). After the target(s) are cloned in the VM, you can build them and move forward with the steps outlined in the [Indexing 
-in Sourcetrail] (link) section
+in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail) section
 
 ### VMWare 
 
