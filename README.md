@@ -1,4 +1,4 @@
-###Table of Contents
+# Table of Contents
 
 1. [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)
 2. [What Is Fuzzing?](https://github.com/alex-maleno/Fuzzing-Module#what-is-fuzzing)
