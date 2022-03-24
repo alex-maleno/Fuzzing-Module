@@ -1,3 +1,16 @@
+###Table of Contents
+
+1. [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)
+2. [What Is Fuzzing?](https://github.com/alex-maleno/Fuzzing-Module#what-is-fuzzing)
+3. [Why Fuzz?](https://github.com/alex-maleno/Fuzzing-Module#why-fuzz)
+4. [Terms Used Throughout the Module](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module)
+5. [Tools Used](https://github.com/alex-maleno/Fuzzing-Module#tools-used)
+6. [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)
+7. [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
+8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
+9. [Sourcetrail Download](https://github.com/alex-maleno/Fuzzing-Module#sourcetrail)
+10. [Running AFL++](https://github.com/alex-maleno/Fuzzing-Module#running-afl)
+
 # Fuzzing-Module
 
 TODO: reword all the poor word choices of alex maleno bc he cannot write
@@ -70,7 +83,7 @@ We use a number of tools throughout this learning module (with download links as
  - After this is done - run through the setup of the VM and open it up, and run the image. Then, follow the next set of
  steps in order to download Sourcetrail in your VM. 
  
-## Sourcetrail
+## Sourcetrail Download
  - In order to download Sourcetrail, which we can use to walk through and analyze code, go to the
  [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
  with your operating system. Then run through the setup on your computer and open up the app. 
