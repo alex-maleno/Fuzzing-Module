@@ -12,8 +12,7 @@
 10. [Running AFL++](https://github.com/alex-maleno/Fuzzing-Module#running-afl)
 11. [Building Targets: on Mac](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-mac)
 12. [Building Targets: on Windows](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-windows)
-13. [VirtualBox and VMWare](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#virtualbox)
-14. [Indexing and Analysis in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail)
+13. [Indexing and Analysis in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail)
 
 # Fuzzing-Module
 
