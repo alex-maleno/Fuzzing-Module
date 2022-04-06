@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz/airplane_object.cpp
+iostream
+-
+string
+-
+airplane_object.hpp
+/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz/airplane_object.hpp
+
+/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz/airplane_object.hpp
+
