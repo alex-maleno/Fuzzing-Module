@@ -13,6 +13,7 @@
 11. [Building Targets: on Mac](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-mac)
 12. [Building Targets: on Windows](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-windows)
 13. [Indexing and Analysis in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail)
+14. [Creating a Slice](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#creating-a-slice)
 
 # Fuzzing-Module
 
@@ -20,7 +21,6 @@ TODO: reword all the poor word choices of alex maleno bc he cannot write
 
 TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
 
-TODO: table of contents with links (maybe, idk if we can do this within markdown, figure it out later)
 
 ## Introduction
 
@@ -40,6 +40,7 @@ TODO: keep adding to this as we write the module so people know what terms mean
 - **Container**: An isolated environment on a computer that allows code to run freely without interacting with the rest of your computer. You can think of this like a Virtual Machine, but only having a command line interface.
 - **Wrapper**: A program that allows a fuzzer to interact with the desired code being fuzzed.
 - **Mutations**: New inputs from the fuzzer that are modified from previous inputs to try to get to different areas of the code
+- **Slice**: A section of a codebase that is isolated from the rest of it in order to find vulnerabilities / bugs easier
 
 # Phase 0: Setup and Software
 
@@ -161,3 +162,7 @@ TODO: add more about the above bullet it sux
 
 - In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later
 
+## Creating a Slice
+TODO: figure out an appropriate spot to have this section. Tossed it at the end just to get ideas down. Also write more
+
+When creating a [slice](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module), you want to narrow down the code that will be running as much as possible. For example, if you were looking to fuzz a drone system, you may just want to fuzz the communication module or the gps module to see if there are flaws in the logic that the fuzzer you are using can detect. Each fuzzing project is different, based on the layout of the codebase and the build system thats used to compile the executable. Looking at the documentation for the codebase can be very helpful to learn how all the different modules interact with each other, which can then help you figure out where to start looking at the code in Sourcetrail.
