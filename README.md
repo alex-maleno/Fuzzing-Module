@@ -148,6 +148,13 @@ TODO: add anything else here that is different
 
 ## Indexing and Analysis in Sourcetrail
 
+- After the project is built, open up Sourcetrail and hit New Project. Name the project something relevant and in the "Sourcetrail
+Project Location" text box, click the three dots on the right and navigate to the directory where your project is. After the path 
+is listed in the text box, click "Add Source Group" at the bottom of the window. 
+- In the new pop up, select the "CDB" option if it is a C or C++ project. A new window will pop up. Click the three dots in
+the "Compilation Database" textbox, and navigate to the "compile_commands.json" file within the build folder you created in the 
+target. This will allow the files to be indexed in Sourcetrail. 
+- On a Windows machine, this process is the same, but must be done within the virtual machine. 
 - Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code) so you can 
 see the files listed out and can navigate them more easily. This will allow you to glance over code and find things that would
 be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code 
@@ -157,9 +164,6 @@ very quickly).
 - After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. After doing this, we can see the 
 different functions inside of the file, and the inputs to those functions. We can click through those things to learn more 
 about them 
-
-TODO: add more about the above bullet it sux
-
 - In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later
 
 ## Creating a Slice
