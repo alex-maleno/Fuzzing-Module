@@ -38,10 +38,10 @@ Fuzzing is used to find vulnerabilities in software. You can fuzz your own code 
 ## Terms Used Throughout the Module
 TODO: keep adding to this as we write the module so people know what terms mean
 
-- **Container**: An isolated environment on a computer that allows code to run freely without interacting with the rest of your computer. You can think of this like a Virtual Machine, but only having a command line interface.
-- **Wrapper**: A program that allows a fuzzer to interact with the slice being fuzzed.
-- **Mutations**: New inputs from the fuzzer that are modified from previous inputs to try to get to different areas of the code
-- **Slice**: A section of a codebase that is isolated from the rest of it in order to find vulnerabilities / bugs easier
+- **Container**: An isolated environment on a computer that allows code to run freely without interacting with the rest of your computer or other hardware. You can think of this like a Virtual Machine which only uses a command line interface.
+- **Wrapper**: A program that allows a fuzzer to interact with the slice being fuzzed.  It is the code which glues together the fuzzer and the target code.
+- **Mutations**: New inputs which the fuzzer generates by modifying previous inputs with the goal of reaching more areas of the target code.
+- **Slice**: A section of a codebase that is isolated from the rest of it.  Isolation of slices makes finding vulnerabilites and bugs easier and more efficient.
 
 # Phase 0: Setup and Software
 
