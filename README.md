@@ -65,42 +65,39 @@ We use a number of tools throughout this learning module (with download links as
 ## How to Create an AFL++ Docker Container
  - Open the Docker app on your computer, otherwise the next step will throw an error. 
  - In your terminal, run the following command: `docker pull aflplusplus/aflplusplus`
- -- After this command has run, open the Docker app and see the AFL++ container under the Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue.
- -- If you do not see a new container, go to the Images tab (also on the left) and find the most recent aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container.  
+    - After this command has run, open the Docker app and see the AFL++ container under the Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue.
+    - If you do not see a new container, go to the Images tab (also on the left) and find the most recent aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container.  
  - Once you have created the container, return to the Container / Apps tab.
  - Hover over the new container and click the play button to start the container.
- -- If there is a stop button instead of a play button, then the container is already running.
+    - If there is a stop button instead of a play button, then the container is already running.
  - Click on the CLI button, which has " >_ " in a circle. This will open a new command line window that is already within your AFL++ docker container.
 
 ## Kali Linux (for Windows) - or any other virtual machine
-  - For our purposes, we chose Kali Linux as our virtual macine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code. 
+ - For our purposes, we chose Kali Linux as our virtual macine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code. 
  - To do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the VM download on the page just below. 
 	- To download the correct Kali image, make sure you are matching your computer architecture with the image you download. 
 	Under the Bare Metal header, you can choose 64 or 32-bit images. The recommended image to download is the "Installer"
-	image, which is the first one you see and is 2.8GB in size. If you want to read more about which image to download, 
-	you can read about it [here](https://www.kali.org/docs/introduction/what-image-to-download/).
-	- After downloading the correct image, scroll down on the page under the "Virtual Machines" header, and choose either the 
-	VMWare or the VirtualBox download (make sure to choose either 64 or 32 bit here as well). 
+	image, which is the first one you see and is 2.8GB in size. You can read more about which image to download [here](https://www.kali.org/docs/introduction/what-image-to-download/).
+	- After downloading the correct image, scroll down on the page under the "Virtual Machines" header, and choose either the VMWare or the VirtualBox download (make sure to choose either 64 or 32 bit here as well). 
  - After this is done - run through the setup of the VM and open it up, and run the image. After you run, you should
  get a login screen - the default credentials to enter are a username and password of `kali`. Then, follow the next set of
  steps in order to download Sourcetrail in your VM. 
  
 ## Sourcetrail Download
- - In order to download Sourcetrail, which we can use to walk through and analyze code, go to the
- [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
- with your operating system. Then run through the setup on your computer and open up the app. 
+ - To download Sourcetrail go to the [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and select the release that is compatible with your operating system. Run through the setup on your computer and open up the app. 
 
 ## Creating a Container to Fuzz Code
 
 1. Start the docker container for AFL++ using the Docker app on your desktop
 2. Within the command line, type: `docker ps`
-    - This will output the running docker containers on your machine at the moment, so copy the `CONTAINER ID` for the AFL++ container that is running
+    - This will output the running docker containers on your machine at the moment. Copy the `CONTAINER ID` for the running AFL++ container
 3. Next, with your copied container ID, type: `docker commit [container id]`
-    - This will output a SHA256 hash of the committed container. Copy the first portion of the commit hash, try to get at least 7 characters
-4. Lastly, to start the AFL++ container with the code we want to fuzz, navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
+    - This will output a SHA256 hash of the committed container. Copy the first 7-10 characters of the commit hash.
+4. To start the AFL++ container with the target code, first navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
     - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
-    - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]` 
-    - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz":"/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz" f9a71912b4` 
+    - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]`
+        - this error arises when directory names contain space characters
+    - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium":"/Users/george/Desktop/CS Capstone/capstone/medium" f9a71912b4` 
 
 ## Running AFL++
 
