@@ -140,8 +140,8 @@ Congratulations, you are now running AFL++ on your target code! There should be 
 
 The example programs which we provide for you in this repository can be "made" using cmake.  Ensure that the directory has a file called "CMakeLists.txt" which contains a version of the following:
 
-    `project([executable name])`
-    `add_executable([executable name] cpp1.cpp main.cpp [etc.])`
+    project([executable name])
+    add_executable([executable name] cpp1.cpp main.cpp [etc.])
 
 
 Additionally, much of our testing was performed on the open source drone control package ArduPilot.  To build ArduPilot on a Mac, follow these steps (much of this content copied from and/or originally found [here](https://ardupilot.org/dev/docs/building-setup-linux.html) under "Setup using Docker"):
