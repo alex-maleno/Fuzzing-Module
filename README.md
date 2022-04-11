@@ -148,7 +148,7 @@ Additionally, much of our testing was performed on the open source drone control
 3. Run the ArduPilot docker container.
     - `docker run --rm -it -v `pwd`:/ardupilot ardupilot:latest bash`
 
-<a href="https://ardupilot.org/dev/docs/building-setup-linux.html">here</a>
+<a href="https://ardupilot.org/dev/docs/building-setup-linux.html" target="_blank">here</a>
 
 
 ## On Windows
