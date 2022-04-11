@@ -177,9 +177,10 @@ When using AFL++, something that needs to be included in the [wrapper](https://g
 
 `#ifdef __AFL_HAVE_MANUAL_CONTROL`
 
-`	__AFL_INIT();`
+	`__AFL_INIT();`
 
 `#endif`
+
 These lines need to be included in your `main` before you actually enter the target you are fuzzing. They allow AFL++ to have control over the inputs by feeding it's inputs through `STDIN`.
 
 In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
