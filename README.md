@@ -45,47 +45,36 @@ TODO: keep adding to this as we write the module so people know what terms mean
 
 # Phase 0: Setup and Software
 
-## Tools Used
+## Key Terms
 
-We use a number of tools throughout this learning module (with download links as they come up), so we will define them here.
+We use a number of tools throughout this learning module (with download links as they come up), so we will outline them here.
 
-- **Docker**: We will create a container using Docker in order to create an isolated environment on your computer in order to fuzz the code we are looking at. 
-- **AFL++**: AFL++ is a fuzzer that we will be using in order to look for vulnerabilities. AFL++ will be attached to our code using a wrapper, and AFL++ will handle all of the inputs and mutations. When running code with AFL++, there is a nice output that updates automatically to show how long the code as been running and some information about the number of crashes/hangs that have been detected.
-- **Kali Linux**: A virtual machine that we used during this process for Windows users. Any other virtual machine will work for our purposes.
-- **Sourcetrail**: A tool that can be used to get familiar with a codebase. There are two main windows within Sourcetrail - the code being looked at and a graphical interpretation of that code. By clicking on functions within the code, you can see where those functions are called in other spots throughout the codebase. 
+- **Docker**: We will create a container using Docker to create an isolated environment for fuzzing the target code.
+- **AFL++**: AFL++ is the fuzzer we will use in this learning module. AFL++ will attache to the target code using a wrapper, and it will handle all of the inputs and mutations. When running code with AFL++, there is a nice output that updates automatically to show how long the code as been running and some information about the number of crashes/hangs that have been detected.
+- **Kali Linux**: A virtual machine that we used during our testing process for Windows users. Any other virtual machine will work for our purposes.
+- **Sourcetrail**: A tool that can be used to get familiar with a codebase. There are two main windows within Sourcetrail - the code being looked at and a graphical interpretation of it. By clicking on functions within the code, you can see where those functions are called in other spots throughout the codebase. We found Sourcetrail to be quite useful for exploring large projects because we could more easily determine how various parts of the codebases were connected.
 
 ## How to Dowload Docker
- - To download Docker, go to this link on the [Docker wesbite](https://www.docker.com/products/docker-desktop/) and make sure 
- you choose the correct operating system and chip. If you have a Windows, machine, those download links can be found directly
- below the download links for Mac. 
+ - To download Docker, go to this link on the [Docker wesbite](https://www.docker.com/products/docker-desktop/) and choose the correct operating system and chip. The website should automatically propose the correct software for your system, but download links for other versions will also be availabile on the page.
  - After the download is complete, run through the steps in the setup and open the desktop app on your computer. 
 
 ## How to Clone AFLplusplus
- - The next step is to go to the AFLplusplus [Github Repo](https://github.com/AFLplusplus/AFLplusplus) and hit the green
- "Code" button, and copy the HTTPS link to clone the repository. 
-- In your terminal - Terminal for Mac and PowerShell for Windows - write 
-`git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer. 
+ - Go to the AFLplusplus [Github Repo](https://github.com/AFLplusplus/AFLplusplus) and click the green "Code" button.  Copy the HTTPS link to clone the repository. 
+- In your terminal - Terminal for Mac and PowerShell for Windows - execute this command to colone the repository: `git clone https://github.com/AFLplusplus/AFLplusplus` .
 
-### How to Create an AFL++ Docker Container
- - First, open the Docker desktop app on your computer, otherwise the next step will throw an error. 
- - In your terminal, run the following command `docker pull aflplusplus/aflplusplus`
- - After this command has run, you should be able to open the Docker app and see the AFL++ container under the 
- Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue. 
- --if you do not see a new Container, go to the Images tab (also on the left) and find the most recent 
- aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container.  
- Once you have created the container, return to the Container / Apps tab.
- - Hover over that container, and click the play button to start the container (if there is a stop button 
- instead of a play button, then the container is already running).
- - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within y
- our AFL++ docker container.
+## How to Create an AFL++ Docker Container
+ - Open the Docker app on your computer, otherwise the next step will throw an error. 
+ - In your terminal, run the following command: `docker pull aflplusplus/aflplusplus`
+ -- After this command has run, open the Docker app and see the AFL++ container under the Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue.
+ -- If you do not see a new container, go to the Images tab (also on the left) and find the most recent aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container.  
+ - Once you have created the container, return to the Container / Apps tab.
+ - Hover over the new container and click the play button to start the container.
+ -- If there is a stop button instead of a play button, then the container is already running.
+ - Click on the CLI button, which has " >_ " in a circle. This will open a new command line window that is already within your AFL++ docker container.
 
 ## Kali Linux (for Windows) - or any other virtual machine
-  - For our purposes, we chose Kali Linux as our virtual macine, but any virtual machine should work here. We used 
- a VM in order to run Sourcetrail. When running Sourcetrail on Windows, Sourcetrail was unable to locate the correct path
- for the code, so an alternate solution had to be employed. 
- - In order to do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare 
- with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the
- VM download on the page just below. 
+  - For our purposes, we chose Kali Linux as our virtual macine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code. 
+ - To do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the VM download on the page just below. 
 	- To download the correct Kali image, make sure you are matching your computer architecture with the image you download. 
 	Under the Bare Metal header, you can choose 64 or 32-bit images. The recommended image to download is the "Installer"
 	image, which is the first one you see and is 2.8GB in size. If you want to read more about which image to download, 
