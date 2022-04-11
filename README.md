@@ -25,7 +25,7 @@ TODO: have classmates read through learning module to get an estimate of how lon
 
 ## Introduction
 
-Within this repository is this ReadMe, which gives an overview about what fuzzing is, why one would want to fuzz, and a detailed guide to teach anyone familiar with Computer Science about how they can start up their own fuzzing project. 
+This repository contains a README which explains the concept of fuzzing and why one would want to fuzz.  The README goes on to teach anyone familiar with Computer Science how they can start fuzzing their own projects using the three examples ("problem1", etc.) in the repository. 
 
 ## What Is Fuzzing?
 
@@ -33,7 +33,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fuzzing), fuzzing is automated in
 
 ## Why Fuzz?
 
-Fuzzing is useful in order to find vulnerabilities within code. This can be your own code, and you can fuzz it to reinforce that you covered all the edge cases of bugs that could occur, or it can be code you are interested in studying. Again, a more detailed description of why one would choose to fuzz can be found in [Google's Fuzzing repo](https://github.com/google/fuzzing).
+Fuzzing is used to find vulnerabilities in software. You can fuzz your own code or open source projects to find and patch edge cases of bugs or for other academic purposes. Again, a more detailed description of why one would choose to fuzz can be found in [Google's Fuzzing repo](https://github.com/google/fuzzing).
 
 ## Terms Used Throughout the Module
 TODO: keep adding to this as we write the module so people know what terms mean
