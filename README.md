@@ -174,8 +174,11 @@ When creating a [slice](https://github.com/alex-maleno/Fuzzing-Module#terms-used
 For the slice, you can comment out some of the code in the target to ignore features that you are not interested in fuzzing. The essential pieces in order to run the code should be the only code left uncommented. For example, if there is a section that `sleeps` a certain period of time to wait for another module to be up and running, but you are not interested in that module of the target, then comment it out.
 
 When using AFL++, something that needs to be included in the [wrapper](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module) are the following lines:
+
 `#ifdef __AFL_HAVE_MANUAL_CONTROL`
+
 `	__AFL_INIT();`
+
 `#endif`
 These lines need to be included in your `main` before you actually enter the target you are fuzzing. They allow AFL++ to have control over the inputs by feeding it's inputs through `STDIN`.
 
