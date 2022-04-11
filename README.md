@@ -177,7 +177,7 @@ When using AFL++, something that needs to be included in the [wrapper](https://g
 
 `#ifdef __AFL_HAVE_MANUAL_CONTROL`
 
-	`__AFL_INIT();`
+   `__AFL_INIT();`
 
 `#endif`
 
