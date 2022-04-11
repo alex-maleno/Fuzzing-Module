@@ -37,7 +37,7 @@ This repository contains a README which explains the concept of fuzzing and why 
 
 ## What Is Fuzzing?
 
-From [Wikipedia1](https://en.wikipedia.org/wiki/Fuzzing) <a href="https://en.wikipedia.org/wiki/Fuzzing" target="_blank">Wikipedia2</a>, fuzzing is automated input testing for a codebase or executable. While fuzzing, invalid or unexpected (sometimes random) data is provided to an executable in hopes of finding some undefined behavior, or vulnerability. For more information about what fuzzing is and how it can be beneficial, you can look at [Google's Fuzzing repo](https://github.com/google/fuzzing).
+From [Wikipedia](https://en.wikipedia.org/wiki/Fuzzing), fuzzing is automated input testing for a codebase or executable. While fuzzing, invalid or unexpected (sometimes random) data is provided to an executable in hopes of finding some undefined behavior, or vulnerability. For more information about what fuzzing is and how it can be beneficial, you can look at [Google's Fuzzing repo](https://github.com/google/fuzzing).
 
 ## Why Fuzz?
 
