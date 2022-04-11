@@ -8,6 +8,9 @@
 6. [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)
 7. [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
 8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
+
+
+
 9. [Sourcetrail Download](https://github.com/alex-maleno/Fuzzing-Module#sourcetrail)
 10. [Running AFL++](https://github.com/alex-maleno/Fuzzing-Module#running-afl)
 11. [Building Targets: on Mac](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-mac)
@@ -15,12 +18,13 @@
 13. [Indexing and Analysis in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail)
 14. [Creating a Slice](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#creating-a-slice)
 
-# Fuzzing-Module
-
 TODO: reword all the poor word choices of alex maleno bc he cannot write
 
 TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
 
+# Fuzzing-Module
+
+# Phase 0: What is Fuzzing
 
 ## Introduction
 
@@ -42,7 +46,7 @@ TODO: keep adding to this as we write the module so people know what terms mean
 - **Mutations**: New inputs from the fuzzer that are modified from previous inputs to try to get to different areas of the code
 - **Slice**: A section of a codebase that is isolated from the rest of it in order to find vulnerabilities / bugs easier
 
-# Phase 0: Setup and Software
+# Phase 1: Setup and Software
 
 ## Tools Used
 
@@ -65,19 +69,6 @@ We use a number of tools throughout this learning module (with download links as
 - In your terminal - Terminal for Mac and PowerShell for Windows - write 
 `git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer. 
 
-### How to create an AFL++ Docker container
- - First, open the Docker desktop app on your computer, otherwise the next step will throw an error. 
- - In your terminal, run the following command `docker pull aflplusplus/aflplusplus`
- - After this command has run, you should be able to open the Docker app and see the AFL++ container under the 
- Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue. 
- --if you do not see a new Container, go to the Images tab (also on the left) and find the most recent 
- aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container.  
- Once you have created the container, return to the Container / Apps tab.
- - Hover over that container, and click the play button to start the container (if there is a stop button 
- instead of a play button, then the container is already running).
- - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within y
- our AFL++ docker container.
-
 ## Kali Linux (for Windows) - or any other virtual machine
   - For our purposes, we chose Kali Linux as our virtual macine, but any virtual machine should work here. We used 
  a VM in order to run Sourcetrail. When running Sourcetrail on Windows, Sourcetrail was unable to locate the correct path
@@ -94,52 +85,6 @@ We use a number of tools throughout this learning module (with download links as
  - After this is done - run through the setup of the VM and open it up, and run the image. After you run, you should
  get a login screen - the default credentials to enter are a username and password of `kali`. Then, follow the next set of
  steps in order to download Sourcetrail in your VM. 
- 
-## Sourcetrail Download
- - In order to download Sourcetrail, which we can use to walk through and analyze code, go to the
- [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
- with your operating system. Then run through the setup on your computer and open up the app. 
-
-## Creating a Container to Fuzz Code
-
-1. Start the docker container for AFL++ using the Docker app on your desktop
-2. Within the command line, type: `docker ps`
-    - This will output the running docker containers on your machine at the moment, so copy the `CONTAINER ID` for the AFL++ container that is running
-3. Next, with your copied container ID, type: `docker commit [container id]`
-    - This will output a SHA256 hash of the committed container. Copy the first portion of the commit hash, try to get at least 7 characters
-4. Lastly, to start the AFL++ container with the code we want to fuzz, navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
-    - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
-    - If the terminal prints the following error, add "quotation marks" around the $(pwd):/\[directory\] ... _docker: invalid reference format: repository name must be lowercase.
-    - For example, the complete command looks something like the following: docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz":"/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz" f9a71912b4 (note, the directory pathway in this context is /capstone/PX4-Autopilot/PX4-Autopilot/ ~ all the actual files ~ )
-
-## Running AFL++
-
-1. Within the /AFLplusplus directory (you should start here in the container when you start it), `make` the executables (this may take a few minutes, be patient)
-2. Once done building the AFLplusplus executables, navigate to the folder of the code you want to fuzz. You will need to go up a directory from /AFLplusplus (cd ..), and then cd into [name of the directory you are adding to the container] from step 4 of "Creating a Container to Fuzz Code".
-3. Create a build directory (standard practice to name it build)
-4. cd into build
-5. Add AFL++ tooling to the compiler for your executable: CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..
-    - afl-clang-lto/++ are just one example of compilers you can use with AFL++ - different compilers have different examples. You can use any of the compilers within the /AFLplusplus directory, and the CXX variable name is always the same as the CC variable, with ++ appended to the end
-6. make (make) the files in build
-7. /AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]
-    - If you don't have a seed directory to begin with, you can populate files using the dd command, i.e. dd if=/dev/urandom of=seed_i bs=64 count=10
-    - You can read more about the dd command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
-
-TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
-TODO: make the links open in a separate window??
-
-# Phase I: Building Targets
-
-## On Mac
-
-TODO: building on mac and bugs to look for
-
-## On Windows
-
-When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
-the files in our targets from being indexed properly by Sourcetrail. This issue was remedied through the use of a virtual machine. 
-As mentioned previously, we used Kali Linux with VMWare/VirtualBox, however any VM should work as a solution. If you are not
-familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide. 
 
 ### VirtualBox
 
@@ -157,6 +102,65 @@ in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.m
 ### VMWare 
 
 VMware is a free-to-use, at the personal level, virtual machine software for many potential operating systems. The VMware code can be downloaded for free [here](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html). Once VMWare is installed, it may be used with any potential linux OS which provides a VMWare configuration. In the context of this project, we decided to use Kali, however, any linux version would work insofar as there exists a VMware file for it. Once the virtual machine software has finished installing, one can simply open the Kali, or any other, VM file within the program to run it.
+
+# Phase 2: The First Fuzz
+
+## How to create an AFL++ Docker Container
+ - First, open the Docker desktop app on your computer, otherwise the next step will throw an error. 
+ - In your terminal, run the following command `docker pull aflplusplus/aflplusplus`
+ - After this command has run, you should be able to open the Docker app and see the AFL++ container under the 
+ Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue. 
+ --if you do not see a new Container, go to the Images tab (also on the left) and find the most recent 
+ aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container.  
+ Once you have created the container, return to the Container / Apps tab.
+ - Hover over that container, and click the play button to start the container (if there is a stop button 
+ instead of a play button, then the container is already running).
+ - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within y
+ our AFL++ docker container.
+
+## How to create Target Docker Container Old(Creating a Container to Fuzz Code)
+
+1. Start the docker container for AFL++ using the Docker app on your desktop
+2. Within the command line, type: `docker ps`
+    - This will output the running docker containers on your machine at the moment, so copy the `CONTAINER ID` for the AFL++ container that is running
+3. Next, with your copied container ID, type: `docker commit [container id]`
+    - This will output a SHA256 hash of the committed container. Copy the first portion of the commit hash, try to get at least 7 characters
+4. Lastly, to start the AFL++ container with the code we want to fuzz, navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
+    - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
+    - If the terminal prints the following error, add "quotation marks" around the $(pwd):/\[directory\] ... _docker: invalid reference format: repository name must be lowercase.
+    - For example, the complete command looks something like the following: docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz":"/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz" f9a71912b4 (note, the directory pathway in this context is /capstone/PX4-Autopilot/PX4-Autopilot/ ~ all the actual files ~ )
+
+## How to Compile Target 1
+
+TODO (copy in)
+
+## How to Run AFL++ on Target 1  old(Running AFL++)
+
+1. Within the /AFLplusplus directory (you should start here in the container when you start it), `make` the executables (this may take a few minutes, be patient)
+2. Once done building the AFLplusplus executables, navigate to the folder of the code you want to fuzz. You will need to go up a directory from /AFLplusplus (cd ..), and then cd into [name of the directory you are adding to the container] from step 4 of "Creating a Container to Fuzz Code".
+3. Create a build directory (standard practice to name it build)
+4. cd into build
+5. Add AFL++ tooling to the compiler for your executable: CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..
+    - afl-clang-lto/++ are just one example of compilers you can use with AFL++ - different compilers have different examples. You can use any of the compilers within the /AFLplusplus directory, and the CXX variable name is always the same as the CC variable, with ++ appended to the end
+6. make (make) the files in build
+7. /AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]
+    - If you don't have a seed directory to begin with, you can populate files using the dd command, i.e. dd if=/dev/urandom of=seed_i bs=64 count=10
+    - You can read more about the dd command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
+
+TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
+TODO: make the links open in a separate window??
+
+# Phase 3: Analyzing Codebases for potential Vulnerabilities
+ 
+## Sourcetrail Download
+When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
+the files in our targets from being indexed properly by Sourcetrail. This issue was remedied through the use of a virtual machine. 
+As mentioned previously, we used Kali Linux with VMWare/VirtualBox, however any VM should work as a solution. If you are not
+familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide. 
+
+ - In order to download Sourcetrail, which we can use to walk through and analyze code, go to the
+ [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
+ with your operating system. Then run through the setup on your computer and open up the app. 
 
 ## Indexing and Analysis in Sourcetrail
 
@@ -178,6 +182,16 @@ different functions inside of the file, and the inputs to those functions. We ca
 about them 
 - In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later
 
+## Challenge: Fuzz Target 2
+
+TODO
+
+## Solution: How to Fuzz Target 2
+
+TODO
+
+# Phase 4: Fuzzing a Target with a slice
+
 ## Creating a Slice
 TODO: figure out an appropriate spot to have this section. Tossed it at the end just to get ideas down. Also write more
 
@@ -196,4 +210,16 @@ When using AFL++, something that needs to be included in the [wrapper](https://g
 These lines need to be included in your `main` before you actually enter the target you are fuzzing. They allow AFL++ to have control over the inputs by feeding it's inputs through `STDIN`.
 
 In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
+
+## Challenge: Fuzz Target 3
+
+TODO
+
+## Recap
+
+TODO
+
+## Conclusion
+
+TODO
 
