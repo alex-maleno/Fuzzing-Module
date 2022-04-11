@@ -140,13 +140,15 @@ The example programs which we provide for you in this repository can be "made" u
     add_executable([executable name] cpp1.cpp main.cpp [etc.])
 
 
-Additionally, much of our testing was performed on the open source drone control package ArduPilot.  To build ArduPilot on a Mac, follow these steps (much of this content copied from and/or originally found [here](https://ardupilot.org/dev/docs/building-setup-linux.html):
+Additionally, much of our testing was performed on the open source drone control package ArduPilot.  To build ArduPilot on a Mac, follow these steps (much of this content copied from and/or originally found [here](https://ardupilot.org/dev/docs/building-setup-linux.html) under "Setup using Docker"):
 1. Clone the ArduPilot repository
     - `git clone https://github.com/ArduPilot/ardupilot.git`
 2. Build the Docker image and "tag" it with the name ardupilot.
     - docker build . -t ardupilot
 3. Run the ArduPilot docker container.
     - `docker run --rm -it -v `pwd`:/ardupilot ardupilot:latest bash`
+
+<a href="https://ardupilot.org/dev/docs/building-setup-linux.html">here</a>
 
 
 ## On Windows
