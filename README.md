@@ -9,11 +9,12 @@
 7. [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
 8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
 9. [Sourcetrail Download](https://github.com/alex-maleno/Fuzzing-Module#sourcetrail)
-10. [Running AFL++](https://github.com/alex-maleno/Fuzzing-Module#running-afl)
-11. [Building Targets: on Mac](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-mac)
-12. [Building Targets: on Windows](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-windows)
-13. [Indexing and Analysis in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail)
-14. [Creating a Slice](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#creating-a-slice)
+10. [Creating a Container to Fuzz Code](https://github.com/alex-maleno/Fuzzing-Module#creating-a-container-to-fuzz-code)
+11. [Running AFL++](https://github.com/alex-maleno/Fuzzing-Module#running-afl)
+12. [Building Targets: on Mac](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-mac)
+13. [Building Targets: on Windows](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-windows)
+14. [Indexing and Analysis in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail)
+15. [Creating a Slice](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#creating-a-slice)
 
 # Fuzzing-Module
 
@@ -65,7 +66,7 @@ We use a number of tools throughout this learning module (with download links as
 - In your terminal - Terminal for Mac and PowerShell for Windows - write 
 `git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer. 
 
-### How to create an AFL++ Docker container
+### How to Create an AFL++ Docker Container
  - First, open the Docker desktop app on your computer, otherwise the next step will throw an error. 
  - In your terminal, run the following command `docker pull aflplusplus/aflplusplus`
  - After this command has run, you should be able to open the Docker app and see the AFL++ container under the 
@@ -109,8 +110,8 @@ We use a number of tools throughout this learning module (with download links as
     - This will output a SHA256 hash of the committed container. Copy the first portion of the commit hash, try to get at least 7 characters
 4. Lastly, to start the AFL++ container with the code we want to fuzz, navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
     - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
-    - If the terminal prints the following error, add "quotation marks" around the $(pwd):/\[directory\] ... _docker: invalid reference format: repository name must be lowercase.
-    - For example, the complete command looks something like the following: docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz":"/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz" f9a71912b4 (note, the directory pathway in this context is /capstone/PX4-Autopilot/PX4-Autopilot/ ~ all the actual files ~ )
+    - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]` 
+    - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz":"/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz" f9a71912b4` (note, the directory pathway in this context is /capstone/PX4-Autopilot/PX4-Autopilot/ ~ all the actual files ~ )
 
 ## Running AFL++
 
