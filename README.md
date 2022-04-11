@@ -149,7 +149,7 @@ Additionally, much of our testing was performed on the open source drone control
 2. Build the Docker image and "tag" it with the name ardupilot.
     - docker build . -t ardupilot
 3. Run the ArduPilot docker container.
-    - `docker run --rm -it -v ``pwd``:/ardupilot ardupilot:latest bash`
+    - `docker run --rm -it -v` `pwd:/ardupilot ardupilot:latest bash`
 
 
 
