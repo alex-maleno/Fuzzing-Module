@@ -38,7 +38,7 @@ Fuzzing is useful in order to find vulnerabilities within code. This can be your
 TODO: keep adding to this as we write the module so people know what terms mean
 
 - **Container**: An isolated environment on a computer that allows code to run freely without interacting with the rest of your computer. You can think of this like a Virtual Machine, but only having a command line interface.
-- **Wrapper**: A program that allows a fuzzer to interact with the desired code being fuzzed.
+- **Wrapper**: A program that allows a fuzzer to interact with the slice being fuzzed.
 - **Mutations**: New inputs from the fuzzer that are modified from previous inputs to try to get to different areas of the code
 - **Slice**: A section of a codebase that is isolated from the rest of it in order to find vulnerabilities / bugs easier
 
@@ -170,3 +170,14 @@ about them
 TODO: figure out an appropriate spot to have this section. Tossed it at the end just to get ideas down. Also write more
 
 When creating a [slice](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module), you want to narrow down the code that will be running as much as possible. For example, if you were looking to fuzz a drone system, you may just want to fuzz the communication module or the gps module to see if there are flaws in the logic that the fuzzer you are using can detect. Each fuzzing project is different, based on the layout of the codebase and the build system thats used to compile the executable. Looking at the documentation for the codebase can be very helpful to learn how all the different modules interact with each other, which can then help you figure out where to start looking at the code in Sourcetrail.
+
+For the slice, you can comment out some of the code in the target to ignore features that you are not interested in fuzzing. The essential pieces in order to run the code should be the only code left uncommented. For example, if there is a section that `sleeps` a certain period of time to wait for another module to be up and running, but you are not interested in that module of the target, then comment it out.
+
+When using AFL++, something that needs to be included in the [wrapper](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module) are the following lines:
+`#ifdef __AFL_HAVE_MANUAL_CONTROL`
+`	__AFL_INIT();`
+`#endif`
+These lines need to be included in your `main` before you actually enter the target you are fuzzing. They allow AFL++ to have control over the inputs by feeding it's inputs through `STDIN`.
+
+In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
+
