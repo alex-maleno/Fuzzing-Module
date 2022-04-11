@@ -148,7 +148,7 @@ Additionally, much of our testing was performed on the open source drone control
 1. Clone the ArduPilot repository
     - `git clone https://github.com/ArduPilot/ardupilot.git`
 2. Build the Docker image and "tag" it with the name ardupilot.
-    - docker build . -t ardupilot
+    - `docker build . -t ardupilot`
 3. Run the ArduPilot docker container.
     - `docker run --rm -it -v $(pwd):/ardupilot ardupilot:latest bash`
 
@@ -157,22 +157,18 @@ Additionally, much of our testing was performed on the open source drone control
 ## On Windows
 
 When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
-the files in our targets from being indexed properly by Sourcetrail. This issue was remedied through the use of a virtual machine. 
+the files in our targets from being indexed properly by Sourcetrail. We remedied the issue by using a virtual machine. 
 As mentioned previously, we used Kali Linux with VMWare/VirtualBox, however any VM should work as a solution. If you are not
 familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide. 
 
 ### VirtualBox
 
-In order to open your image of Kali Linux on VirtualBox, all you have to do is follow the steps on [this website](https://itsfoss.com/install-kali-linux-virtualbox/).
-The image of Kali Linux described earlier in the module is one of the "ready-to-use" virtual images, which means all of the correct
-settings should import as well when you import the image to VirtualBox. Make sure you are using the file with the `.ova` extension.
-After you import the image, you can hit "Import" and then after a few minutes you should see the image in the sidebar of the
-VirtualBox application. Select it, and then press the green "Start" arrow to start up the VM. 
+To open your image of Kali Linux on VirtualBox, follow the steps on [this website](https://itsfoss.com/install-kali-linux-virtualbox/).
+The image of Kali Linux described earlier in the module is one of the "ready-to-use" virtual images, which means all of the correct settings should import as well when you import the image to VirtualBox. Make sure you are using the file with the `.ova` extension.
 
-Once you are logged in, you should see a Desktop with the Kali logo in the background. In the top left corner, there is an 
-icon resembling a terminal. Open this, and follow the download steps for Sourcetrail as well as doing `git clone` for the chosen
-target(s). After the target(s) are cloned in the VM, you can build them and move forward with the steps outlined in the [Indexing 
-in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail) section
+After you import the image, you can hit "Import" and then after a few minutes you should see the image in the sidebar of the VirtualBox application. Select it, and then press the green "Start" arrow to start up the VM. 
+
+Once you are logged in, you should see a Desktop with the Kali logo in the background. In the top left corner, there is an icon resembling a terminal. Open this, and follow the download steps for Sourcetrail as well as doing `git clone` for the chosen target(s). After the target(s) are cloned in the VM, you can build them and move forward with the steps outlined in the [Indexing in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail) section.
 
 ### VMWare 
 
@@ -180,23 +176,20 @@ VMware is a free-to-use, at the personal level, virtual machine software for man
 
 ## Indexing and Analysis in Sourcetrail
 
-- After the project is built, open up Sourcetrail and hit New Project. Name the project something relevant and in the "Sourcetrail
-Project Location" text box, click the three dots on the right and navigate to the directory where your project is. After the path 
+- After the project is built, open Sourcetrail and click New Project. Name the project something relevant and in the "Sourcetrail
+Project Location" text box, click the three dots on the right and navigate to the directory where your project lives. After the path 
 is listed in the text box, click "Add Source Group" at the bottom of the window. 
 - In the new pop up, select the "CDB" option if it is a C or C++ project. A new window will pop up. Click the three dots in
 the "Compilation Database" textbox, and navigate to the "compile_commands.json" file within the build folder you created in the 
 target. This will allow the files to be indexed in Sourcetrail. 
 - On a Windows machine, this process is the same, but must be done within the virtual machine. 
-- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code) so you can 
-see the files listed out and can navigate them more easily. This will allow you to glance over code and find things that would
-be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code 
+- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code, sublime, etc.) so you can see the files listed out and can navigate the file tree. This will allow you to glance over code and find things that might be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code 
 very quickly). 
 - The best way to find potential entry points in your targets is too look for files dealing with inputs from an outside source	
-	- This could look like sensors, GPS systems, user inputs, communication modules, etc. 
-- After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. After doing this, we can see the 
-different functions inside of the file, and the inputs to those functions. We can click through those things to learn more 
-about them 
-- In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later
+	- This could look like sensors, GPS systems, user inputs, communication modules, etc.
+    - We had success looking at "Mavlink"-related functions and files.
+- After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. You will see the functions in the file and the inputs to those functions. You can click through those things to learn more about them.
+- In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later.
 
 ## Creating a Slice
 TODO: figure out an appropriate spot to have this section. Tossed it at the end just to get ideas down. Also write more
@@ -204,6 +197,8 @@ TODO: figure out an appropriate spot to have this section. Tossed it at the end 
 When creating a [slice](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module), you want to narrow down the code that will be running as much as possible. For example, if you were looking to fuzz a drone system, you may just want to fuzz the communication module or the gps module to see if there are flaws in the logic that the fuzzer you are using can detect. Each fuzzing project is different, based on the layout of the codebase and the build system thats used to compile the executable. Looking at the documentation for the codebase can be very helpful to learn how all the different modules interact with each other, which can then help you figure out where to start looking at the code in Sourcetrail.
 
 For the slice, you can comment out some of the code in the target to ignore features that you are not interested in fuzzing. The essential pieces in order to run the code should be the only code left uncommented. For example, if there is a section that `sleeps` a certain period of time to wait for another module to be up and running, but you are not interested in that module of the target, then comment it out.
+
+The goal of making a slice is to streamline the running process of the program so AFL++ can more efficiently run it internally.
 
 When using AFL++, something that needs to be included in the [wrapper](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module) are the following lines:
 
@@ -213,7 +208,7 @@ When using AFL++, something that needs to be included in the [wrapper](https://g
 
 `#endif`
 
-These lines need to be included in your `main` before you read inputs from `STDIN`. They allow AFL++ to have control over the inputs by feeding it's inputs through `STDIN`.
+These lines need to be included in your `main` before you read inputs from `STDIN`. They allow AFL++ to have control over the inputs by feeding its inputs through `STDIN`.
 
 ### How to Create a Slice for Problem 3
 In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
