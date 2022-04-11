@@ -135,6 +135,20 @@ Congratulations, you are now running AFL++ on your target code! There should be 
 
 TODO: building on mac and bugs to look for
 
+The example programs which we provide for you in this repository can be "made" using cmake.  Ensure that the directory has a file called "CMakeLists.txt" which contains a version of the following:
+    project([executable name])
+    add_executable([executable name] cpp1.cpp main.cpp [etc.])
+
+
+Additionally, much of our testing was performed on the open source drone control package ArduPilot.  To build ArduPilot on a Mac, follow these steps (much of this content copied from and/or originally found [here](https://ardupilot.org/dev/docs/building-setup-linux.html):
+1. Clone the ArduPilot repository
+    - `git clone https://github.com/ArduPilot/ardupilot.git`
+2. Build the Docker image and "tag" it with the name ardupilot.
+    - docker build . -t ardupilot
+3. Run the ArduPilot docker container.
+    - `docker run --rm -it -v `pwd`:/ardupilot ardupilot:latest bash`
+
+
 ## On Windows
 
 When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
