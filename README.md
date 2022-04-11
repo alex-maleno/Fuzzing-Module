@@ -1,11 +1,15 @@
 TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
 TODO: make the links open in a separate window?? ... not possible https://stackoverflow.com/questions/41915571/open-link-in-new-tab-with-github-markdown-using-target-blank
 
+
 TODO: reword all the poor word choices of alex maleno bc he cannot write
 
 TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
 
 TODO: add a bit after/at the end of "Running AFL++" about how to see the input that caused crashes
+
+TODO: review "Building Targets" -> on a Mac section
+
 
 # Table of Contents
 
@@ -133,11 +137,10 @@ Congratulations, you are now running AFL++ on your target code! There should be 
 
 ## On Mac
 
-TODO: building on mac and bugs to look for
 
 The example programs which we provide for you in this repository can be "made" using cmake.  Ensure that the directory has a file called "CMakeLists.txt" which contains a version of the following:
-    project([executable name])
-    add_executable([executable name] cpp1.cpp main.cpp [etc.])
+    `project([executable name])`
+    `add_executable([executable name] cpp1.cpp main.cpp [etc.])`
 
 
 Additionally, much of our testing was performed on the open source drone control package ArduPilot.  To build ArduPilot on a Mac, follow these steps (much of this content copied from and/or originally found [here](https://ardupilot.org/dev/docs/building-setup-linux.html) under "Setup using Docker"):
@@ -146,10 +149,9 @@ Additionally, much of our testing was performed on the open source drone control
 2. Build the Docker image and "tag" it with the name ardupilot.
     - docker build . -t ardupilot
 3. Run the ArduPilot docker container.
-    - `docker run --rm -it -v `pwd`:/ardupilot ardupilot:latest bash`
+    - `docker run --rm -it -v ``pwd``:/ardupilot ardupilot:latest bash`
 
-<a href="https://ardupilot.org/dev/docs/building-setup-linux.html" target="_blank">here</a>
-[go](http://stackoverflow.com){:target="_blank"}
+
 
 ## On Windows
 
