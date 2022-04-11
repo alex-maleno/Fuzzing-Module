@@ -144,7 +144,7 @@ in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.m
 
 ### VMWare 
 
-TODO: add anything else here that is different
+VMware is a free-to-use, at the personal level, virtual machine software for many potential operating systems. The VMware code can be downloaded for free [here](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html). Once VMWare is installed, it may be used with any potential linux OS which provides a VMWare configuration. In the context of this project, we decided to use Kali, however, any linux version would work insofar as there exists a VMware file for it. Once the virtual machine software has finished installing, one can simply open the Kali, or any other, VM file within the program to run it.
 
 ## Indexing and Analysis in Sourcetrail
 
