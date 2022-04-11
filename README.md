@@ -100,6 +100,18 @@ We use a number of tools throughout this learning module (with download links as
  [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
  with your operating system. Then run through the setup on your computer and open up the app. 
 
+## Creating a Container to Fuzz Code
+
+1. Start the docker container for AFL++ using the Docker app on your desktop
+2. Within the command line, type: `docker ps`
+    - This will output the running docker containers on your machine at the moment, so copy the `CONTAINER ID` for the AFL++ container that is running
+3. Next, with your copied container ID, type: `docker commit [container id]`
+    - This will output a SHA256 hash of the committed container. Copy the first portion of the commit hash, try to get at least 7 characters
+4. Lastly, to start the AFL++ container with the code we want to fuzz, navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
+    - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
+    - If the terminal prints the following error, add "quotation marks" around the $(pwd):/\[directory\] ... _docker: invalid reference format: repository name must be lowercase.
+    - For example, the complete command looks something like the following: docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz":"/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz" f9a71912b4 (note, the directory pathway in this context is /capstone/PX4-Autopilot/PX4-Autopilot/ ~ all the actual files ~ )
+
 ## Running AFL++
 
 1. Within the /AFLplusplus directory (you should start here in the container when you start it), `make` the executables (this may take a few minutes, be patient)

@@ -1,1 +1,0 @@
-/AFLplusplus/afl-clang-lto++    -rdynamic CMakeFiles/medium.dir/airplane_object.cpp.o CMakeFiles/medium.dir/main.cpp.o  -o medium 

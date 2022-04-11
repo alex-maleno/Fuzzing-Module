@@ -1,6 +1,0 @@
-
-Input a string made of the following characters: 't', 'l', 'h', and 'f'
-Any / all other characters will be ignored.  'q' quits the application.
-t == take off, l == land, h == hire a crew member, f == fire one.
-
-No command.
