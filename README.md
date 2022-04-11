@@ -1,3 +1,12 @@
+TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
+TODO: make the links open in a separate window?? ... not possible https://stackoverflow.com/questions/41915571/open-link-in-new-tab-with-github-markdown-using-target-blank
+
+TODO: reword all the poor word choices of alex maleno bc he cannot write
+
+TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
+
+TODO: add a bit after/at the end of "Running AFL++" about how to see the input that caused crashes
+
 # Table of Contents
 
 1. [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)
@@ -17,11 +26,6 @@
 15. [Creating a Slice](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#creating-a-slice)
 
 # Fuzzing-Module
-
-TODO: reword all the poor word choices of alex maleno bc he cannot write
-
-TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
-
 
 ## Introduction
 
@@ -84,7 +88,7 @@ We use a number of tools throughout this learning module (with download links as
  steps in order to download Sourcetrail in your VM. 
  
 ## Sourcetrail Download
- - To download Sourcetrail go to the [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and select the release that is compatible with your operating system. Run through the setup on your computer and open up the app. 
+ - To download Sourcetrail go to the [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and select the release that is compatible with your operating system. Run through the setup on your computer and open the app. 
 
 ## Creating a Container to Fuzz Code
 
@@ -96,7 +100,7 @@ We use a number of tools throughout this learning module (with download links as
 4. To start the AFL++ container with the target code, first navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
     - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
     - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]`
-        - this error arises when directory names contain space characters
+        - This error arises when directory names contain space characters
     - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium":"/Users/george/Desktop/CS Capstone/capstone/medium" f9a71912b4` 
 
 ## Running AFL++
@@ -104,16 +108,26 @@ We use a number of tools throughout this learning module (with download links as
 1. Within the /AFLplusplus directory (you should start here in the container when you start it), `make` the executables (this may take a few minutes, be patient)
 2. Once done building the AFLplusplus executables, navigate to the folder of the code you want to fuzz. You will need to go up a directory from /AFLplusplus (cd ..), and then cd into [name of the directory you are adding to the container] from step 4 of "Creating a Container to Fuzz Code".
 3. Create a build directory (standard practice to name it build)
-4. cd into build
-5. Add AFL++ tooling to the compiler for your executable: CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..
+    - `mkdir build`
+4. Change directory into build
+    - `cd build`
+5. Add AFL++ tooling to the compiler for your executable:
+    - `CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`
     - afl-clang-lto/++ are just one example of compilers you can use with AFL++ - different compilers have different examples. You can use any of the compilers within the /AFLplusplus directory, and the CXX variable name is always the same as the CC variable, with ++ appended to the end
-6. make (make) the files in build
-7. /AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]
-    - If you don't have a seed directory to begin with, you can populate files using the dd command, i.e. dd if=/dev/urandom of=seed_i bs=64 count=10
+6. Make the files in build
+    - `make`
+7. If you do not already have a seed directory, follow this process to create and populate one using the dd command.  If you do have such a directory, skip to step 8.
+        - `cd ..`
+        - `mkdir seeds`
+        - `dd if=/dev/urandom of=seed_i bs=64 count=10`
+        - repeat the above step 5 times, each time changing the value seed_i to seed_ii, etc.
+        - `cd ..`
+        - `cd build`
     - You can read more about the dd command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
+8. Once you have a seed directory, enter the following command:
+    - `/AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]`
 
-TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
-TODO: make the links open in a separate window??
+Congratulations, you are now running AFL++ on your target code! There should be a UI in terminal which shows you various statistics about the fuzzing proccess - look for the number of crashes detected.
 
 # Phase I: Building Targets
 
