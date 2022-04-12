@@ -26,8 +26,8 @@ TODO: review "Building Targets" -> on a Mac section
 6. [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)
 7. [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
 8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
-9. [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#virtualbox)
-10. [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#vmware)
+9. [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-virtualbox)
+10. [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-vmware)
 11. [How To Download SourceTrail](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)
 
 ## Phase 2: The first Fuzz
@@ -116,7 +116,7 @@ We use a number of tools throughout this learning module (with download links as
 
 ## Virtual Machines
 
-Through our expierience on this project we would reccoment using VirtualBox rather than VMware.
+Through our expierience on this project we would reccomend using VirtualBox rather than VMware.
 
 #### How To Download VirtualBox
 
