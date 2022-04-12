@@ -21,6 +21,24 @@ TODO: review "Building Targets" -> on a Mac section
 6. [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)
 7. [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
 8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
+9. [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#virtualbox)
+10. [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#vmware)
+11. [Phase 2: The first Fuzz](https://github.com/alex-maleno/Fuzzing-Module#phase-2-the-first-fuzz)
+12. [How to Create an AFL++ Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-an-afl-docker-container)
+13. [How To Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)
+14. [How To Compile Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-compile-target-1)
+15. [How To Run AFL++ on Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-target-1)
+16. [Phase 3: Analyzing Codebases For Potential Vulnerabilities] (https://github.com/alex-maleno/Fuzzing-Module#phase-3-analyzing-codebases-for-potential-vulnerabilities)
+17. [How To Use Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module#how-To-Use-Sourcetrail)
+18. [Challenge: Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)
+19. [Solution: How To Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-2)
+20. [Phase 4: Fuzzing a Target with a slice](https://github.com/alex-maleno/Fuzzing-Module#phase-4-fuzzing-a-target-with-a-slice)
+21. [Creating a Slice](https://github.com/alex-maleno/Fuzzing-Module#creating-a-slice)
+22. [How To Create a Slice for Target 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)
+23. [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)
+24. [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)
+
+
 
 
 
@@ -116,7 +134,7 @@ VMware is a free-to-use, at the personal level, virtual machine software for man
  - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within y
  our AFL++ docker container.
 
-## How to create Target Docker Container Old(Creating a Container to Fuzz Code)
+## How to create Target Docker Container
 
 1. Start the docker container for AFL++ using the Docker app on your desktop
 2. Within the command line, type: `docker ps`
@@ -133,7 +151,7 @@ VMware is a free-to-use, at the personal level, virtual machine software for man
 
 TODO (copy in)
 
-## How to Run AFL++ on Target 1  old(Running AFL++)
+## How to Run AFL++ on Target 1
 
 1. Within the /AFLplusplus directory (you should start here in the container when you start it), `make` the executables (this may take a few minutes, be patient)
 2. Once done building the AFLplusplus executables, navigate to the folder of the code you want to fuzz. You will need to go up a directory from /AFLplusplus (cd ..), and then cd into [name of the directory you are adding to the container] from step 4 of "Creating a Container to Fuzz Code".
@@ -171,7 +189,7 @@ familiar with VMs, we will walk through using Kali Linux with VMWare and Virtual
  [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
  with your operating system. Then run through the setup on your computer and open up the app. 
 
-## Indexing and Analysis in Sourcetrail
+## How To Use Sourcetrail
 
 - After the project is built, open Sourcetrail and click New Project. Name the project something relevant and in the "Sourcetrail
 Project Location" text box, click the three dots on the right and navigate to the directory where your project lives. After the path 
@@ -221,10 +239,6 @@ These lines need to be included in your `main` before you read inputs from `STDI
 In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
 
 ## Challenge: Fuzz Target 3
-
-TODO
-
-## Recap
 
 TODO
 
