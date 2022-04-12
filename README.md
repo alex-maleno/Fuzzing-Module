@@ -41,8 +41,10 @@ TODO: review "Building Targets" -> on a Mac section
 17. [How To Use Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module#how-To-Use-Sourcetrail)
 18. [Challenge: Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)
 19. [Solution: How To Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-2)
-20. [Phase 4: Fuzzing a Target with a slice](https://github.com/alex-maleno/Fuzzing-Module#phase-4-fuzzing-a-target-with-a-slice)
-21. [Creating a Slice](https://github.com/alex-maleno/Fuzzing-Module#creating-a-slice)
+
+## Phase 4: Fuzzing a Target with a slice
+
+21. [How To Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)
 22. [How To Create a Slice for Target 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)
 23. [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)
 24. [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)
@@ -225,7 +227,7 @@ TODO
 
 # Phase 4: Fuzzing a Target with a slice
 
-## Creating a Slice
+## How To Create a Slice
 TODO: figure out an appropriate spot to have this section. Tossed it at the end just to get ideas down. Also write more
 
 When creating a [slice](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module), you want to narrow down the code that will be running as much as possible. For example, if you were looking to fuzz a drone system, you may just want to fuzz the communication module or the gps module to see if there are flaws in the logic that the fuzzer you are using can detect. Each fuzzing project is different, based on the layout of the codebase and the build system thats used to compile the executable. Looking at the documentation for the codebase can be very helpful to learn how all the different modules interact with each other, which can then help you figure out where to start looking at the code in Sourcetrail.
