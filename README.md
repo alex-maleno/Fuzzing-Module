@@ -13,22 +13,31 @@ TODO: review "Building Targets" -> on a Mac section
 
 # Table of Contents
 
+## Phase 0: What is Fuzzing?
+
 1. [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)
 2. [What Is Fuzzing?](https://github.com/alex-maleno/Fuzzing-Module#what-is-fuzzing)
 3. [Why Fuzz?](https://github.com/alex-maleno/Fuzzing-Module#why-fuzz)
 4. [Terms Used Throughout the Module](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module)
-5. [Tools Used](https://github.com/alex-maleno/Fuzzing-Module#tools-used)
+
+## Phase 1: Setup and Software
+
+5. [Required Software Tools](https://github.com/alex-maleno/Fuzzing-Module#Required-Software-Tools)
 6. [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)
 7. [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
 8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
 9. [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#virtualbox)
 10. [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#vmware)
-11. [Phase 2: The first Fuzz](https://github.com/alex-maleno/Fuzzing-Module#phase-2-the-first-fuzz)
+
+## Phase 2: The first Fuzz
+
 12. [How to Create an AFL++ Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-an-afl-docker-container)
 13. [How To Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)
 14. [How To Compile Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-compile-target-1)
 15. [How To Run AFL++ on Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-target-1)
-16. [Phase 3: Analyzing Codebases For Potential Vulnerabilities] (https://github.com/alex-maleno/Fuzzing-Module#phase-3-analyzing-codebases-for-potential-vulnerabilities)
+
+## Phase 3: Finding Potential Vulnerabilities
+
 17. [How To Use Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module#how-To-Use-Sourcetrail)
 18. [Challenge: Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)
 19. [Solution: How To Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-2)
@@ -72,7 +81,7 @@ TODO: keep adding to this as we write the module so people know what terms mean
 
 # Phase 1: Setup and Software
 
-## Key Terms
+## Required Software Tools
 
 We use a number of tools throughout this learning module (with download links as they come up), so we will outline them here.
 
