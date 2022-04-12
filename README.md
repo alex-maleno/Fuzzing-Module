@@ -21,8 +21,8 @@
 
 2.1 [How to Create an AFL++ Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-an-afl-docker-container)    
 2.2 [How to Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)  
-2.3 [How to Run AFL++ on Problem 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-problem-1) 
-2.4 [Analyzing the Crashes](https://github.com/alex-maleno/Fuzzing-Module#analyzing-the-crashes)
+2.3 [How to Run AFL++ on Problem 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-problem-1)  
+2.4 [Analyzing the Crashes](https://github.com/alex-maleno/Fuzzing-Module#analyzing-the-crashes)  
 2.5 [Challenge: Fuzz Problem 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)  
 
 
