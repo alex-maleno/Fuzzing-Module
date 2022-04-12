@@ -16,39 +16,39 @@ TODO: review "Building Targets" -> on a Mac section
 ## Phase 0: What is Fuzzing?
 
 0.1 [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)  
-2. [What Is Fuzzing?](https://github.com/alex-maleno/Fuzzing-Module#what-is-fuzzing)
-3. [Why Fuzz?](https://github.com/alex-maleno/Fuzzing-Module#why-fuzz)
-4. [Terms Used Throughout the Module](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module)
+0.2 [What Is Fuzzing?](https://github.com/alex-maleno/Fuzzing-Module#what-is-fuzzing)  
+0.3 [Why Fuzz?](https://github.com/alex-maleno/Fuzzing-Module#why-fuzz)  
+0.4 [Terms Used Throughout the Module](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module)  
 
 ## Phase 1: Setup and Software
 
-5. [Required Software Tools](https://github.com/alex-maleno/Fuzzing-Module#Required-Software-Tools)
-6. [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)
-7. [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
-8. [How to Get Kali Linux](https://github.com/alex-maleno/Fuzzing-Module#How-to-Get-Kali-Linux)
-9. [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-virtualbox)
-10. [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-vmware)
-11. [How To Download SourceTrail](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)
+1.1 [Required Software Tools](https://github.com/alex-maleno/Fuzzing-Module#Required-Software-Tools)  
+1.2 [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)  
+1.3 [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)  
+1.4 [How to Get Kali Linux](https://github.com/alex-maleno/Fuzzing-Module#How-to-Get-Kali-Linux)  
+1.5 [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-virtualbox)  
+1.6 [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-vmware)  
+1.7 [How To Download SourceTrail](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)  
 
 ## Phase 2: The first Fuzz
 
-12. [How to Create an AFL++ Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-an-afl-docker-container)
-13. [How To Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)
-14. [How To Compile Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-compile-target-1)
-15. [How To Run AFL++ on Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-target-1)
+2.1 [How to Create an AFL++ Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-an-afl-docker-container)    
+2.2 [How To Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)  
+2.3 [How To Compile Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-compile-target-1)  
+2.4 [How To Run AFL++ on Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-target-1)  
 
 ## Phase 3: Finding Potential Vulnerabilities
 
-17. [How To Use Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module#how-To-Use-Sourcetrail)
-18. [Challenge: Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)
-19. [Solution: How To Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-2)
+3.1 [How To Use Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module#how-To-Use-Sourcetrail)  
+3.2 [Challenge: Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)  
+3.3 [Solution: How To Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-2)  
 
 ## Phase 4: Fuzzing a Target with a slice
 
-21. [How To Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)
-22. [How To Create a Slice for Target 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)
-23. [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)
-24. [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)
+4.1 [How To Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)  
+4.2 [How To Create a Slice for Target 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)  
+4.3 [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)  
+4.4 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)  
 
 
 
