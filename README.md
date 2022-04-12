@@ -47,8 +47,9 @@ TODO: review "Building Targets" -> on a Mac section
 
 4.1 [How To Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)  
 4.2 [How To Create a Slice for Target 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)  
-4.3 [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)  
-4.4 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)  
+4.3 [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)
+4.4 [Solution: How To Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#Solution:-How-To-Fuzz-Target-3)  
+4.5 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)  
 
 
 
@@ -255,6 +256,10 @@ These lines need to be included in your `main` before you read inputs from `STDI
 In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
 
 ## Challenge: Fuzz Target 3
+
+TODO
+
+## Solution: How To Fuzz Target 3
 
 TODO
 
