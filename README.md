@@ -1,16 +1,3 @@
-TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
-TODO: make the links open in a separate window?? ... not possible https://stackoverflow.com/questions/41915571/open-link-in-new-tab-with-github-markdown-using-target-blank
-
-
-TODO: reword all the poor word choices of alex maleno bc he cannot write
-
-TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
-
-TODO: add a bit after/at the end of "Running AFL++" about how to see the input that caused crashes
-
-TODO: review "Building Targets" -> on a Mac section
-
-
 # Table of Contents
 
 ## Phase 0: What is Fuzzing?
@@ -33,31 +20,24 @@ TODO: review "Building Targets" -> on a Mac section
 ## Phase 2: The first Fuzz
 
 2.1 [How to Create an AFL++ Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-an-afl-docker-container)    
-2.2 [How To Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)  
-2.3 [How To Compile Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-compile-target-1)  
-2.4 [How To Run AFL++ on Target 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-target-1)  
+2.2 [How to Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)  
+2.3 [How to Run AFL++ on Problem 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-problem-1) 
+2.4 [Analyzing the Crashes](https://github.com/alex-maleno/Fuzzing-Module#analyzing-the-crashes)
+2.5 [Challenge: Fuzz Problem 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)  
+
 
 ## Phase 3: Finding Potential Vulnerabilities
 
 3.1 [How To Use Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module#how-To-Use-Sourcetrail)  
-3.2 [Challenge: Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)  
-3.3 [Solution: How To Fuzz Target 2](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-2)  
+  
 
 ## Phase 4: Fuzzing a Target with a slice
 
 4.1 [How To Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)  
-4.2 [How To Create a Slice for Target 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)  
-4.3 [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)  
+4.2 [How To Create a Slice for Problem 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)  
+4.3 [Challenge: Fuzz Problem 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)  
 4.4 [Solution: How To Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-3)   
 4.5 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)  
-
-
-
-
-
-TODO: reword all the poor word choices of alex maleno bc he cannot write
-
-TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
 
 # Fuzzing-Module
 
@@ -76,12 +56,11 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fuzzing), fuzzing is automated in
 Fuzzing is used to find vulnerabilities in software. You can fuzz your own code or open source projects to find and patch edge cases of bugs or for other academic purposes. Again, a more detailed description of why one would choose to fuzz can be found in [Google's Fuzzing repo](https://github.com/google/fuzzing).
 
 ## Terms Used Throughout the Module
-TODO: keep adding to this as we write the module so people know what terms mean
 
 - **Container**: An isolated environment on a computer that allows code to run freely without interacting with the rest of your computer or other hardware. You can think of this like a Virtual Machine which only uses a command line interface.
 - **Wrapper**: A program that allows a fuzzer to interact with the slice being fuzzed.  It is the code which glues together the fuzzer and the target code.
 - **Mutations**: New inputs which the fuzzer generates by modifying previous inputs with the goal of reaching more areas of the target code.
-- **Slice**: A section of a codebase that is isolated from the rest of it.  Isolation of slices makes finding vulnerabilites and bugs easier and more efficient.
+- **Slice**: A section of a codebase that is isolated from the rest of it.  Isolation of slices makes finding vulnerabilities and bugs easier and more efficient.
 
 # Phase 1: Setup and Software
 
@@ -117,7 +96,7 @@ We use a number of tools throughout this learning module (with download links as
 
 ## Virtual Machines
 
-Through our expierience on this project we would reccomend using VirtualBox rather than VMware.
+Through our experience on this project we would recommend using VirtualBox rather than VMware.
 
 #### How To Download VirtualBox
 
@@ -151,15 +130,12 @@ familiar with VMs, we will walk through using Kali Linux with VMWare and Virtual
 ## How to create an AFL++ Docker Container
  - First, open the Docker desktop app on your computer, otherwise the next step will throw an error. 
  - In your terminal, run the following command `docker pull aflplusplus/aflplusplus`
- - After this command has run, you should be able to open the Docker app and see the AFL++ container under the 
- Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue. 
- --if you do not see a new Container, go to the Images tab (also on the left) and find the most recent 
- aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container.  
- Once you have created the container, return to the Container / Apps tab.
- - Hover over that container, and click the play button to start the container (if there is a stop button 
- instead of a play button, then the container is already running).
- - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within y
- our AFL++ docker container.
+ - After this command has run, you should be able to open the Docker app and see the AFL++ container under the Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue. 
+    - if you do not see a new Container, go to the Images tab (also on the left) and find the most recent aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container. Once you have created the container, return to the Container / Apps tab.
+ - Hover over that container, and click the play button to start the container (if there is a stop button instead of a play button, then the container is already running).
+ - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within your AFL++ docker container.
+ - You should be in the `AFLplsuplus` directory (you can confirm this with `pwd`). Once there, `make` the AFL++ executables. This will take several minutes. Once it is done `make`ing, you can close the CLI.
+
 
 ## How to create Target Docker Container
 
@@ -174,35 +150,43 @@ familiar with VMs, we will walk through using Kali Linux with VMWare and Virtual
         - This error arises when directory names contain space characters
     - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium":"/Users/george/Desktop/CS Capstone/capstone/medium" f9a71912b4` 
 
-## How to Compile Target 1
 
-TODO (copy in)
+## How to Run AFL++ on Problem 1
 
-## How to Run AFL++ on Target 1
-
-1. Within the /AFLplusplus directory (you should start here in the container when you start it), `make` the executables (this may take a few minutes, be patient)
-2. Once done building the AFLplusplus executables, navigate to the folder of the code you want to fuzz. You will need to go up a directory from /AFLplusplus (cd ..), and then cd into [name of the directory you are adding to the container] from step 4 of "Creating a Container to Fuzz Code".
-3. Create a build directory (standard practice to name it build)
+1. After starting the docker container, you should be within the `/AFLplusplus` directory. Navigate to the folder of the code you want to fuzz. You will need to go up a directory from `/AFLplusplus` (`cd ..`), and then `cd` into [name of the directory you are adding to the container] from step 4 of "Creating a Container to Fuzz Code".
+2. Create a build directory (standard practice to name it build)
     - `mkdir build`
-4. Change directory into build
+3. Change directory into build
     - `cd build`
-5. Add AFL++ tooling to the compiler for your executable:
+4. Add AFL++ tooling to the compiler for your executable:
     - `CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`
-    - afl-clang-lto/++ are just one example of compilers you can use with AFL++ - different compilers have different examples. You can use any of the compilers within the /AFLplusplus directory, and the CXX variable name is always the same as the CC variable, with ++ appended to the end
-6. Make the files in build
+    - `afl-clang-lto/++` is just one example of compilers you can use with AFL++ - different compilers have different advantages. You can use any of the compilers within the `/AFLplusplus` directory, and the `CXX` variable name is always the same as the `CC` variable, with `++` appended to the end
+5. Make the files in build
     - `make`
-7. If you do not already have a seed directory, follow this process to create and populate one using the dd command.  If you do have such a directory, skip to step 8.
+6. If you do not already have a seed directory, follow this process to create and populate one using the `dd` command.  If you do have such a directory, skip to step 7.
         - `cd ..`
         - `mkdir seeds`
         - `dd if=/dev/urandom of=seed_i bs=64 count=10`
-        - repeat the above step 5 times, each time changing the value seed_i to seed_ii, etc.
+        - repeat the above step 5 times, each time changing seed_i (e.g. final files would be seed_0 through seed_4)
         - `cd ..`
         - `cd build`
-    - You can read more about the dd command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
-8. Once you have a seed directory, enter the following command:
-    - `/AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]`
+    - You can read more about the `dd` command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
+7. Once you have a seed directory, enter the following command:
+    - `/AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable]`
 
 Congratulations, you are now running AFL++ on your target code! There should be a UI in terminal which shows you various statistics about the fuzzing proccess - look for the number of crashes detected.
+
+## Analyzing the Crashes
+
+- Once there is at least 1 crash shown in the UI of AFL++, hit `Ctrl + C` to exit AFL++. You can find the inputs that caused the program to crash by traversing to the `out/default/crashes` directory.
+- You can use a bugger, such as `gdb` or `llvm`, to figure out what part of the input actually caused the program to crash. There are also other directories in `out/default` that show you some information gathered during the fuzzing process - feel free to explore them.
+
+## Challenge: Fuzzing Problem 2
+
+Now that you have run AFL++ on Problem 1, we would like you to try to run AFL++ on Problem 2 without instruction from the module. If you get stuck, instructions on how to run AFL++ on Problem 2 will be in the `problem2-instructions` directory.
+
+
+# END OF READ THROUGH
 
 # Phase 3: Analyzing Codebases for potential Vulnerabilities
 
@@ -223,18 +207,10 @@ very quickly).
 - After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. You will see the functions in the file and the inputs to those functions. You can click through those things to learn more about them.
 - In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later.
 
-## Challenge: Fuzz Target 2
 
-TODO
+# Phase 4: Fuzzing a Target with a Slice
 
-## Solution: How to Fuzz Target 2
-
-TODO
-
-# Phase 4: Fuzzing a Target with a slice
-
-## How To Create a Slice
-TODO: figure out an appropriate spot to have this section. Tossed it at the end just to get ideas down. Also write more
+## How to Create a Slice
 
 When creating a [slice](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module), you want to narrow down the code that will be running as much as possible. For example, if you were looking to fuzz a drone system, you may just want to fuzz the communication module or the gps module to see if there are flaws in the logic that the fuzzer you are using can detect. Each fuzzing project is different, based on the layout of the codebase and the build system thats used to compile the executable. Looking at the documentation for the codebase can be very helpful to learn how all the different modules interact with each other, which can then help you figure out where to start looking at the code in Sourcetrail.
 
@@ -255,11 +231,11 @@ These lines need to be included in your `main` before you read inputs from `STDI
 ### How to Create a Slice for Problem 3
 In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
 
-## Challenge: Fuzz Target 3
+## Challenge: Fuzz Problem 3
 
 TODO
 
-## Solution: How To Fuzz Target 3
+## Solution: How To Fuzz Problem 3
 
 TODO
 
