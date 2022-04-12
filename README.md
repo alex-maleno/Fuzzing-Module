@@ -1,3 +1,16 @@
+TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
+TODO: make the links open in a separate window?? ... not possible https://stackoverflow.com/questions/41915571/open-link-in-new-tab-with-github-markdown-using-target-blank
+
+
+TODO: reword all the poor word choices of alex maleno bc he cannot write
+
+TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
+
+TODO: add a bit after/at the end of "Running AFL++" about how to see the input that caused crashes
+
+TODO: review "Building Targets" -> on a Mac section
+
+
 # Table of Contents
 
 1. [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)
@@ -11,13 +24,6 @@
 
 
 
-9. [Sourcetrail Download](https://github.com/alex-maleno/Fuzzing-Module#sourcetrail)
-10. [Running AFL++](https://github.com/alex-maleno/Fuzzing-Module#running-afl)
-11. [Building Targets: on Mac](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-mac)
-12. [Building Targets: on Windows](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#on-windows)
-13. [Indexing and Analysis in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail)
-14. [Creating a Slice](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#creating-a-slice)
-
 TODO: reword all the poor word choices of alex maleno bc he cannot write
 
 TODO: have classmates read through learning module to get an estimate of how long it would take to complete the module (time differences for different levels of complexity) and write that here
@@ -28,7 +34,7 @@ TODO: have classmates read through learning module to get an estimate of how lon
 
 ## Introduction
 
-Within this repository is this ReadMe, which gives an overview about what fuzzing is, why one would want to fuzz, and a detailed guide to teach anyone familiar with Computer Science about how they can start up their own fuzzing project. 
+This repository contains a README which explains the concept of fuzzing and why one would want to fuzz.  The README goes on to teach anyone familiar with Computer Science how they can start fuzzing their own projects using the three examples ("problem1", etc.) in the repository. 
 
 ## What Is Fuzzing?
 
@@ -36,31 +42,29 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fuzzing), fuzzing is automated in
 
 ## Why Fuzz?
 
-Fuzzing is useful in order to find vulnerabilities within code. This can be your own code, and you can fuzz it to reinforce that you covered all the edge cases of bugs that could occur, or it can be code you are interested in studying. Again, a more detailed description of why one would choose to fuzz can be found in [Google's Fuzzing repo](https://github.com/google/fuzzing).
+Fuzzing is used to find vulnerabilities in software. You can fuzz your own code or open source projects to find and patch edge cases of bugs or for other academic purposes. Again, a more detailed description of why one would choose to fuzz can be found in [Google's Fuzzing repo](https://github.com/google/fuzzing).
 
 ## Terms Used Throughout the Module
 TODO: keep adding to this as we write the module so people know what terms mean
 
-- **Container**: An isolated environment on a computer that allows code to run freely without interacting with the rest of your computer. You can think of this like a Virtual Machine, but only having a command line interface.
-- **Wrapper**: A program that allows a fuzzer to interact with the slice being fuzzed.
-- **Mutations**: New inputs from the fuzzer that are modified from previous inputs to try to get to different areas of the code
-- **Slice**: A section of a codebase that is isolated from the rest of it in order to find vulnerabilities / bugs easier
+- **Container**: An isolated environment on a computer that allows code to run freely without interacting with the rest of your computer or other hardware. You can think of this like a Virtual Machine which only uses a command line interface.
+- **Wrapper**: A program that allows a fuzzer to interact with the slice being fuzzed.  It is the code which glues together the fuzzer and the target code.
+- **Mutations**: New inputs which the fuzzer generates by modifying previous inputs with the goal of reaching more areas of the target code.
+- **Slice**: A section of a codebase that is isolated from the rest of it.  Isolation of slices makes finding vulnerabilites and bugs easier and more efficient.
 
 # Phase 1: Setup and Software
 
-## Tools Used
+## Key Terms
 
-We use a number of tools throughout this learning module (with download links as they come up), so we will define them here.
+We use a number of tools throughout this learning module (with download links as they come up), so we will outline them here.
 
-- **Docker**: We will create a container using Docker in order to create an isolated environment on your computer in order to fuzz the code we are looking at. 
-- **AFL++**: AFL++ is a fuzzer that we will be using in order to look for vulnerabilities. AFL++ will be attached to our code using a wrapper, and AFL++ will handle all of the inputs and mutations. When running code with AFL++, there is a nice output that updates automatically to show how long the code as been running and some information about the number of crashes/hangs that have been detected.
-- **Kali Linux**: A virtual machine that we used during this process for Windows users. Any other virtual machine will work for our purposes.
-- **Sourcetrail**: A tool that can be used to get familiar with a codebase. There are two main windows within Sourcetrail - the code being looked at and a graphical interpretation of that code. By clicking on functions within the code, you can see where those functions are called in other spots throughout the codebase. 
+- **Docker**: We will create a container using Docker to create an isolated environment for fuzzing the target code.
+- **AFL++**: AFL++ is the fuzzer we will use in this learning module. AFL++ will attache to the target code using a wrapper, and it will handle all of the inputs and mutations. When running code with AFL++, there is a nice output that updates automatically to show how long the code as been running and some information about the number of crashes/hangs that have been detected.
+- **Kali Linux**: A virtual machine that we used during our testing process for Windows users. Any other virtual machine will work for our purposes.
+- **Sourcetrail**: A tool that can be used to get familiar with a codebase. There are two main windows within Sourcetrail - the code being looked at and a graphical interpretation of it. By clicking on functions within the code, you can see where those functions are called in other spots throughout the codebase. We found Sourcetrail to be quite useful for exploring large projects because we could more easily determine how various parts of the codebases were connected.
 
 ## How to Dowload Docker
- - To download Docker, go to this link on the [Docker wesbite](https://www.docker.com/products/docker-desktop/) and make sure 
- you choose the correct operating system and chip. If you have a Windows, machine, those download links can be found directly
- below the download links for Mac. 
+ - To download Docker, go to this link on the [Docker wesbite](https://www.docker.com/products/docker-desktop/) and choose the correct operating system and chip. The website should automatically propose the correct software for your system, but download links for other versions will also be availabile on the page.
  - After the download is complete, run through the steps in the setup and open the desktop app on your computer. 
 
 ## How to Clone AFLplusplus
@@ -70,18 +74,12 @@ We use a number of tools throughout this learning module (with download links as
 `git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer. 
 
 ## Kali Linux (for Windows) - or any other virtual machine
-  - For our purposes, we chose Kali Linux as our virtual macine, but any virtual machine should work here. We used 
- a VM in order to run Sourcetrail. When running Sourcetrail on Windows, Sourcetrail was unable to locate the correct path
- for the code, so an alternate solution had to be employed. 
- - In order to do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare 
- with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the
- VM download on the page just below. 
+ - For our purposes, we chose Kali Linux as our virtual macine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code. 
+ - To do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the VM download on the page just below. 
 	- To download the correct Kali image, make sure you are matching your computer architecture with the image you download. 
 	Under the Bare Metal header, you can choose 64 or 32-bit images. The recommended image to download is the "Installer"
-	image, which is the first one you see and is 2.8GB in size. If you want to read more about which image to download, 
-	you can read about it [here](https://www.kali.org/docs/introduction/what-image-to-download/).
-	- After downloading the correct image, scroll down on the page under the "Virtual Machines" header, and choose either the 
-	VMWare or the VirtualBox download (make sure to choose either 64 or 32 bit here as well). 
+	image, which is the first one you see and is 2.8GB in size. You can read more about which image to download [here](https://www.kali.org/docs/introduction/what-image-to-download/).
+	- After downloading the correct image, scroll down on the page under the "Virtual Machines" header, and choose either the VMWare or the VirtualBox download (make sure to choose either 64 or 32 bit here as well). 
  - After this is done - run through the setup of the VM and open it up, and run the image. After you run, you should
  get a login screen - the default credentials to enter are a username and password of `kali`. Then, follow the next set of
  steps in order to download Sourcetrail in your VM. 
@@ -122,13 +120,14 @@ VMware is a free-to-use, at the personal level, virtual machine software for man
 
 1. Start the docker container for AFL++ using the Docker app on your desktop
 2. Within the command line, type: `docker ps`
-    - This will output the running docker containers on your machine at the moment, so copy the `CONTAINER ID` for the AFL++ container that is running
+    - This will output the running docker containers on your machine at the moment. Copy the `CONTAINER ID` for the running AFL++ container
 3. Next, with your copied container ID, type: `docker commit [container id]`
-    - This will output a SHA256 hash of the committed container. Copy the first portion of the commit hash, try to get at least 7 characters
-4. Lastly, to start the AFL++ container with the code we want to fuzz, navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
+    - This will output a SHA256 hash of the committed container. Copy the first 7-10 characters of the commit hash.
+4. To start the AFL++ container with the target code, first navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
     - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
-    - If the terminal prints the following error, add "quotation marks" around the $(pwd):/\[directory\] ... _docker: invalid reference format: repository name must be lowercase.
-    - For example, the complete command looks something like the following: docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz":"/Users/george/Desktop/CS Capstone/capstone/medium-level-to-fuzz" f9a71912b4 (note, the directory pathway in this context is /capstone/PX4-Autopilot/PX4-Autopilot/ ~ all the actual files ~ )
+    - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]`
+        - This error arises when directory names contain space characters
+    - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium":"/Users/george/Desktop/CS Capstone/capstone/medium" f9a71912b4` 
 
 ## How to Compile Target 1
 
@@ -139,22 +138,32 @@ TODO (copy in)
 1. Within the /AFLplusplus directory (you should start here in the container when you start it), `make` the executables (this may take a few minutes, be patient)
 2. Once done building the AFLplusplus executables, navigate to the folder of the code you want to fuzz. You will need to go up a directory from /AFLplusplus (cd ..), and then cd into [name of the directory you are adding to the container] from step 4 of "Creating a Container to Fuzz Code".
 3. Create a build directory (standard practice to name it build)
-4. cd into build
-5. Add AFL++ tooling to the compiler for your executable: CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..
+    - `mkdir build`
+4. Change directory into build
+    - `cd build`
+5. Add AFL++ tooling to the compiler for your executable:
+    - `CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`
     - afl-clang-lto/++ are just one example of compilers you can use with AFL++ - different compilers have different examples. You can use any of the compilers within the /AFLplusplus directory, and the CXX variable name is always the same as the CC variable, with ++ appended to the end
-6. make (make) the files in build
-7. /AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]
-    - If you don't have a seed directory to begin with, you can populate files using the dd command, i.e. dd if=/dev/urandom of=seed_i bs=64 count=10
+6. Make the files in build
+    - `make`
+7. If you do not already have a seed directory, follow this process to create and populate one using the dd command.  If you do have such a directory, skip to step 8.
+        - `cd ..`
+        - `mkdir seeds`
+        - `dd if=/dev/urandom of=seed_i bs=64 count=10`
+        - repeat the above step 5 times, each time changing the value seed_i to seed_ii, etc.
+        - `cd ..`
+        - `cd build`
     - You can read more about the dd command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
+8. Once you have a seed directory, enter the following command:
+    - `/AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable, i.e. /code/build/testapp]`
 
-TODO: organize the table of contents into sections and subsections by phase (0,I,II, etc)
-TODO: make the links open in a separate window??
+Congratulations, you are now running AFL++ on your target code! There should be a UI in terminal which shows you various statistics about the fuzzing proccess - look for the number of crashes detected.
 
 # Phase 3: Analyzing Codebases for potential Vulnerabilities
  
 ## Sourcetrail Download
 When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
-the files in our targets from being indexed properly by Sourcetrail. This issue was remedied through the use of a virtual machine. 
+the files in our targets from being indexed properly by Sourcetrail. We remedied the issue by using a virtual machine. 
 As mentioned previously, we used Kali Linux with VMWare/VirtualBox, however any VM should work as a solution. If you are not
 familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide. 
 
@@ -164,23 +173,20 @@ familiar with VMs, we will walk through using Kali Linux with VMWare and Virtual
 
 ## Indexing and Analysis in Sourcetrail
 
-- After the project is built, open up Sourcetrail and hit New Project. Name the project something relevant and in the "Sourcetrail
-Project Location" text box, click the three dots on the right and navigate to the directory where your project is. After the path 
+- After the project is built, open Sourcetrail and click New Project. Name the project something relevant and in the "Sourcetrail
+Project Location" text box, click the three dots on the right and navigate to the directory where your project lives. After the path 
 is listed in the text box, click "Add Source Group" at the bottom of the window. 
 - In the new pop up, select the "CDB" option if it is a C or C++ project. A new window will pop up. Click the three dots in
 the "Compilation Database" textbox, and navigate to the "compile_commands.json" file within the build folder you created in the 
 target. This will allow the files to be indexed in Sourcetrail. 
 - On a Windows machine, this process is the same, but must be done within the virtual machine. 
-- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code) so you can 
-see the files listed out and can navigate them more easily. This will allow you to glance over code and find things that would
-be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code 
+- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code, sublime, etc.) so you can see the files listed out and can navigate the file tree. This will allow you to glance over code and find things that might be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code 
 very quickly). 
 - The best way to find potential entry points in your targets is too look for files dealing with inputs from an outside source	
-	- This could look like sensors, GPS systems, user inputs, communication modules, etc. 
-- After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. After doing this, we can see the 
-different functions inside of the file, and the inputs to those functions. We can click through those things to learn more 
-about them 
-- In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later
+	- This could look like sensors, GPS systems, user inputs, communication modules, etc.
+    - We had success looking at "Mavlink"-related functions and files.
+- After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. You will see the functions in the file and the inputs to those functions. You can click through those things to learn more about them.
+- In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later.
 
 ## Challenge: Fuzz Target 2
 
@@ -199,6 +205,8 @@ When creating a [slice](https://github.com/alex-maleno/Fuzzing-Module#terms-used
 
 For the slice, you can comment out some of the code in the target to ignore features that you are not interested in fuzzing. The essential pieces in order to run the code should be the only code left uncommented. For example, if there is a section that `sleeps` a certain period of time to wait for another module to be up and running, but you are not interested in that module of the target, then comment it out.
 
+The goal of making a slice is to streamline the running process of the program so AFL++ can more efficiently run it internally.
+
 When using AFL++, something that needs to be included in the [wrapper](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module) are the following lines:
 
 `#ifdef __AFL_HAVE_MANUAL_CONTROL`
@@ -207,8 +215,9 @@ When using AFL++, something that needs to be included in the [wrapper](https://g
 
 `#endif`
 
-These lines need to be included in your `main` before you actually enter the target you are fuzzing. They allow AFL++ to have control over the inputs by feeding it's inputs through `STDIN`.
+These lines need to be included in your `main` before you read inputs from `STDIN`. They allow AFL++ to have control over the inputs by feeding its inputs through `STDIN`.
 
+### How to Create a Slice for Problem 3
 In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
 
 ## Challenge: Fuzz Target 3
