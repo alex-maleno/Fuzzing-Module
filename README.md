@@ -25,7 +25,7 @@ TODO: review "Building Targets" -> on a Mac section
 5. [Required Software Tools](https://github.com/alex-maleno/Fuzzing-Module#Required-Software-Tools)
 6. [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)
 7. [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
-8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
+8. [How to Get Kali Linux](https://github.com/alex-maleno/Fuzzing-Module#How-to-Get-Kali-Linux)
 9. [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-virtualbox)
 10. [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-vmware)
 11. [How To Download SourceTrail](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)
@@ -103,7 +103,7 @@ We use a number of tools throughout this learning module (with download links as
 - In your terminal - Terminal for Mac and PowerShell for Windows - write 
 `git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer. 
 
-## Kali Linux (for Windows) - or any other virtual machine
+## How to Get Kali Linux
  - For our purposes, we chose Kali Linux as our virtual macine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code. 
  - To do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the VM download on the page just below. 
 	- To download the correct Kali image, make sure you are matching your computer architecture with the image you download. 
