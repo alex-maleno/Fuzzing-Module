@@ -15,7 +15,7 @@ TODO: review "Building Targets" -> on a Mac section
 
 ## Phase 0: What is Fuzzing?
 
-1. [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)
+0.1 [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)
 2. [What Is Fuzzing?](https://github.com/alex-maleno/Fuzzing-Module#what-is-fuzzing)
 3. [Why Fuzz?](https://github.com/alex-maleno/Fuzzing-Module#why-fuzz)
 4. [Terms Used Throughout the Module](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module)
