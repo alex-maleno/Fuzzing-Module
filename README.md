@@ -47,8 +47,8 @@ TODO: review "Building Targets" -> on a Mac section
 
 4.1 [How To Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)  
 4.2 [How To Create a Slice for Target 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)  
-4.3 [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)
-4.4 [Solution: How To Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#Solution:-How-To-Fuzz-Target-3)  
+4.3 [Challenge: Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)  
+4.4 [Solution: How To Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#Solution:-How-To-Fuzz-Target-3)   
 4.5 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)  
 
 
