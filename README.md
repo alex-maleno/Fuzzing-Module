@@ -28,6 +28,7 @@ TODO: review "Building Targets" -> on a Mac section
 8. [Kali Linux (for Windows) - or any other virtual machine](https://github.com/alex-maleno/Fuzzing-Module#kali-linux-for-windows---or-any-other-virtual-machine)
 9. [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#virtualbox)
 10. [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#vmware)
+11. [How To Download SourceTrail](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)
 
 ## Phase 2: The first Fuzz
 
@@ -113,7 +114,11 @@ We use a number of tools throughout this learning module (with download links as
  get a login screen - the default credentials to enter are a username and password of `kali`. Then, follow the next set of
  steps in order to download Sourcetrail in your VM. 
 
-### VirtualBox
+## Virtual Machines
+
+Through our expierience on this project we would reccoment using VirtualBox rather than VMware.
+
+#### How To Download VirtualBox
 
 In order to open your image of Kali Linux on VirtualBox, all you have to do is follow the steps on [this website](https://itsfoss.com/install-kali-linux-virtualbox/).
 The image of Kali Linux described earlier in the module is one of the "ready-to-use" virtual images, which means all of the correct
@@ -126,9 +131,19 @@ icon resembling a terminal. Open this, and follow the download steps for Sourcet
 target(s). After the target(s) are cloned in the VM, you can build them and move forward with the steps outlined in the [Indexing 
 in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail) section
 
-### VMWare 
+#### How To Download VMWare 
 
 VMware is a free-to-use, at the personal level, virtual machine software for many potential operating systems. The VMware code can be downloaded for free [here](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html). Once VMWare is installed, it may be used with any potential linux OS which provides a VMWare configuration. In the context of this project, we decided to use Kali, however, any linux version would work insofar as there exists a VMware file for it. Once the virtual machine software has finished installing, one can simply open the Kali, or any other, VM file within the program to run it.
+
+## How To Download Sourcetrail
+When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
+the files in our targets from being indexed properly by Sourcetrail. We remedied the issue by using a virtual machine. 
+As mentioned previously, we used Kali Linux with VMWare/VirtualBox, however any VM should work as a solution. If you are not
+familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide. 
+
+ - In order to download Sourcetrail, which we can use to walk through and analyze code, go to the
+ [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
+ with your operating system. Then run through the setup on your computer and open up the app. 
 
 # Phase 2: The First Fuzz
 
@@ -189,16 +204,6 @@ TODO (copy in)
 Congratulations, you are now running AFL++ on your target code! There should be a UI in terminal which shows you various statistics about the fuzzing proccess - look for the number of crashes detected.
 
 # Phase 3: Analyzing Codebases for potential Vulnerabilities
- 
-## Sourcetrail Download
-When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
-the files in our targets from being indexed properly by Sourcetrail. We remedied the issue by using a virtual machine. 
-As mentioned previously, we used Kali Linux with VMWare/VirtualBox, however any VM should work as a solution. If you are not
-familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide. 
-
- - In order to download Sourcetrail, which we can use to walk through and analyze code, go to the
- [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
- with your operating system. Then run through the setup on your computer and open up the app. 
 
 ## How To Use Sourcetrail
 
