@@ -181,12 +181,12 @@ This is completed in the target container Docker CLI
 5. Make the files in build
     - **`make`**
 6. If you do not already have a seed directory, follow this process to create and populate one using the `dd` command.  If you do have such a directory, skip to step 7.
-        - `cd ..`  
-        - `mkdir seeds`  
-        - `dd if=/dev/urandom of=seed_i bs=64 count=10`  
-        - repeat the above step 5 times, each time changing seed_i (e.g. final files would be seed_0 through seed_4)  
-        - `cd ..`  
-        - `cd build`  
+    - `cd ..`  
+    - `mkdir seeds`  
+    - `dd if=/dev/urandom of=seed_i bs=64 count=10`  
+    - repeat the above step 5 times, each time changing seed_i (e.g. final files would be seed_0 through seed_4)  
+    - `cd ..`  
+    - `cd build`  
     - You can read more about the `dd` command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
 7. Once you have a seed directory, enter the following command:
     - `/AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable]`
