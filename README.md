@@ -10,12 +10,13 @@
 ## Phase 1: Setup and Software
 
 1.1 [Required Software Tools](https://github.com/alex-maleno/Fuzzing-Module#Required-Software-Tools)  
-1.2 [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)  
-1.3 [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)  
-1.4 [How to Get Kali Linux](https://github.com/alex-maleno/Fuzzing-Module#How-to-Get-Kali-Linux-(Windows-Only))  
-1.5 [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-virtualbox)  
-1.6 [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-vmware)  
-1.7 [How To Download SourceTrail](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)  
+1.2 [How to Clone Target Code](https://github.com/alex-maleno/Fuzzing-Module#How-to-Clone-Target-code)  
+1.3 [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)  
+1.4 [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)  
+1.5 [How to Get Kali Linux](https://github.com/alex-maleno/Fuzzing-Module#How-to-Get-Kali-Linux-(Windows-Only))  
+1.6 [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-virtualbox)  
+1.7 [How To Download VMware](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-vmware)  
+1.8 [How To Download SourceTrail](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)  
 
 ## Phase 2: The first Fuzz
 
@@ -43,6 +44,8 @@
 
 # Phase 0: What is Fuzzing
 
+Estimated Time: 2 minutes
+
 ## Introduction
 
 This repository contains a README which explains the concept of fuzzing and why one would want to fuzz.  The README goes on to teach anyone familiar with Computer Science how they can start fuzzing their own projects using the three examples ("problem1", etc.) in the repository. We have designed this module to be completed on a mac system, windows users can still complete the module but will need to use the virtual machines.
@@ -64,14 +67,20 @@ Fuzzing is used to find vulnerabilities in software. You can fuzz your own code 
 
 # Phase 1: Setup and Software
 
+Estimated Time: 15 minutes
+
 ## Required Software Tools
 
 We use a number of tools throughout this learning module (with download links as they come up), so we will outline them here.
 
 - **Docker**: We will create a container using Docker to create an isolated environment for fuzzing the target code.
-- **AFL++**: AFL++ is the fuzzer we will use in this learning module. AFL++ will attache to the target code using a wrapper, and it will handle all of the inputs and mutations. When running code with AFL++, there is a nice output that updates automatically to show how long the code as been running and some information about the number of crashes/hangs that have been detected.
+- **AFL++**: AFL++ is the fuzzer we will use in this learning module. AFL++ will attach to the target code using a wrapper, and it will handle all of the inputs and mutations. When running code with AFL++, there is a nice output that updates automatically to show how long the code as been running and some information about the number of crashes/hangs that have been detected.
 - **Kali Linux**: A virtual machine that we used during our testing process for Windows users. Any other virtual machine will work for our purposes. This is only necessary for windows users.
 - **Sourcetrail**: A tool that can be used to get familiar with a codebase. There are two main windows within Sourcetrail - the code being looked at and a graphical interpretation of it. By clicking on functions within the code, you can see where those functions are called in other spots throughout the codebase. We found Sourcetrail to be quite useful for exploring large projects because we could more easily determine how various parts of the codebases were connected.
+
+## How to Clone Target code
+ -To clone the target code for this module, simply use either the https or ssh clone process for this repository.
+ -Clone the target code into wherever you want on your os.
 
 ## How to Dowload Docker
  - To download Docker, go to this link on the [Docker wesbite](https://www.docker.com/products/docker-desktop/) and choose the correct operating system and chip. The website should automatically propose the correct software for your system, but download links for other versions will also be availabile on the page.
@@ -126,7 +135,9 @@ familiar with VMs, we will walk through using Kali Linux with VMWare and Virtual
  [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
  with your operating system. Then run through the setup on your computer and open up the app. 
 
-# Phase 2: The First Fuzz
+# Phase 2: The First Fuzz  
+
+Estimated Time: 45 Minutes
 
 ## How to create an AFL++ Docker Container
 This is completed in the main OS terminal
@@ -149,7 +160,7 @@ This is completed in the main OS terminal
     - This will output the running docker containers on your machine at the moment. Copy the `CONTAINER ID` for the running AFL++ container
 3. Next, with your copied container ID, type: `docker commit [container id]`
     - This will output a SHA256 hash of the committed container. Copy the first 7-10 characters of the commit hash.
-4. To start the AFL++ container with the target code, first navigate to the top directory of the code you want to fuzz. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
+4. To start the AFL++ container with the target code, first navigate to the top directory of your clone of this github repository. Then type: `docker run --rm -it -v $(pwd):/[name of the directory you are adding to the container] [the commit hash that you copied in the previous step]`
     - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium":"/Users/george/Desktop/CS Capstone/capstone/medium" f9a71912b4`
     - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
     - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]`
@@ -166,16 +177,16 @@ This is completed in the target container Docker CLI
     - **`cd build`**
 4. Add AFL++ tooling to the compiler for your executable:
     - **`CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`**
-    - `afl-clang-lto/++` is just one example of compilers you can use with AFL++ - different compilers have different advantages. You can use any of the compilers within the `/AFLplusplus` directory, and the `CXX` variable name is always the same as the `CC` variable, with `++` appended to the end
+    - Informational Note: `afl-clang-lto/++` is just one example of compilers you can use with AFL++ - different compilers have different advantages. You can use any of the compilers within the `/AFLplusplus` directory, and the `CXX` variable name is always the same as the `CC` variable, with `++` appended to the end
 5. Make the files in build
     - **`make`**
 6. If you do not already have a seed directory, follow this process to create and populate one using the `dd` command.  If you do have such a directory, skip to step 7.
-        - `cd ..`
-        - `mkdir seeds`
-        - `dd if=/dev/urandom of=seed_i bs=64 count=10`
-        - repeat the above step 5 times, each time changing seed_i (e.g. final files would be seed_0 through seed_4)
-        - `cd ..`
-        - `cd build`
+        - `cd ..`  
+        - `mkdir seeds`  
+        - `dd if=/dev/urandom of=seed_i bs=64 count=10`  
+        - repeat the above step 5 times, each time changing seed_i (e.g. final files would be seed_0 through seed_4)  
+        - `cd ..`  
+        - `cd build`  
     - You can read more about the `dd` command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
 7. Once you have a seed directory, enter the following command:
     - `/AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable]`
