@@ -135,8 +135,8 @@ This is completed in the main OS terminal
  - After this command has run, you should be able to open the Docker app and see the AFL++ container under the Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue. 
     - if you do not see a new Container, go to the Images tab (also on the left) and find the most recent aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container. Once you have created the container, return to the Container / Apps tab.
  - Hover over that container, and click the play button to start the container (if there is a stop button instead of a play button, then the container is already running).
- - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within your AFL++ docker container.
- This is completed in the Docker CLI terminal
+ - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within your AFL++ docker container.  
+ The following step is completed in the Docker CLI terminal
  - You should be in the `AFLplsuplus` directory (you can confirm this with `pwd`). Once there, **`make`** the AFL++ executables. This will take several minutes. Once it is done `make`ing, you can close the CLI.
 
 
