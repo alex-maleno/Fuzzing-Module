@@ -13,7 +13,6 @@ Specs::Specs(){
 void Specs::choose_color() {
     std::string color;
     std::cout << "enter desired aircraft color: ";
-    //why is there an error here?????????????????????
     std::cin >> color;
     if (isNumber(color))
         abort();
@@ -57,13 +56,37 @@ void Specs::fuel_cap() {
     }
 }
 
-bool Specs::isNumber(string str)
+bool Specs::isNumber(std::string str)
 {
     for (int i = 0; i < str.length(); i++) {
         if (isdigit(str[i]) == 0) 
             return false;
     }
     return true;
+}
+
+int Specs::get_alt() {
+    return alt;
+}
+
+int Specs::get_speed() {
+    return speed;
+}
+
+int Specs::get_fuel() {
+    return fuel;
+}
+
+void Specs::set_alt(int a) {
+    alt = a;
+}
+
+void Specs::set_speed(int s) {
+    speed = s;
+}
+
+void Specs::set_fuel(int f) {
+    fuel = f;
 }
 
 
