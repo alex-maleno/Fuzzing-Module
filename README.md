@@ -30,7 +30,7 @@
 ## Phase 3: Finding Potential Vulnerabilities
 
 3.1 [How To Use Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module#how-To-Use-Sourcetrail)  
-  
+
 
 ## Phase 4: Fuzzing a Target with a slice
 
@@ -84,25 +84,25 @@ We use a number of tools throughout this learning module (with download links as
 
 ## How to Dowload Docker
  - To download Docker, go to this link on the [Docker wesbite](https://www.docker.com/products/docker-desktop/) and choose the correct operating system and chip. The website should automatically propose the correct software for your system, but download links for other versions will also be availabile on the page.
- - After the download is complete, run through the steps in the setup and open the desktop app on your computer. 
+ - After the download is complete, run through the steps in the setup and open the desktop app on your computer.
  - Disclaimer; this may take up a lot of space on your computer
 
 ## How to Clone AFLplusplus
  - The next step is to go to the AFLplusplus [Github Repo](https://github.com/AFLplusplus/AFLplusplus) and hit the green
- "Code" button, and copy the HTTPS link to clone the repository. 
-- In your terminal - Terminal for Mac and PowerShell for Windows - write 
-`git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer. 
+ "Code" button, and copy the HTTPS link to clone the repository.
+- In your terminal - Terminal for Mac and PowerShell for Windows - write
+`git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer.
 
 ## How to Get Kali Linux (Windows Only)
- - For our purposes, we chose Kali Linux as our virtual macine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code. 
- - To do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the VM download on the page just below. 
-	- To download the correct Kali image, make sure you are matching your computer architecture with the image you download. 
+ - For our purposes, we chose Kali Linux as our virtual macine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code.
+ - To do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the VM download on the page just below.
+	- To download the correct Kali image, make sure you are matching your computer architecture with the image you download.
 	Under the Bare Metal header, you can choose 64 or 32-bit images. The recommended image to download is the "Installer"
 	image, which is the first one you see and is 2.8GB in size. You can read more about which image to download [here](https://www.kali.org/docs/introduction/what-image-to-download/).
-	- After downloading the correct image, scroll down on the page under the "Virtual Machines" header, and choose either the VMWare or the VirtualBox download (make sure to choose either 64 or 32 bit here as well). 
+	- After downloading the correct image, scroll down on the page under the "Virtual Machines" header, and choose either the VMWare or the VirtualBox download (make sure to choose either 64 or 32 bit here as well).
  - After this is done - run through the setup of the VM and open it up, and run the image. After you run, you should
  get a login screen - the default credentials to enter are a username and password of `kali`. Then, follow the next set of
- steps in order to download Sourcetrail in your VM. 
+ steps in order to download Sourcetrail in your VM.
 
 ## Virtual Machines (Windows only)
 
@@ -114,26 +114,26 @@ In order to open your image of Kali Linux on VirtualBox, all you have to do is f
 The image of Kali Linux described earlier in the module is one of the "ready-to-use" virtual images, which means all of the correct
 settings should import as well when you import the image to VirtualBox. Make sure you are using the file with the `.ova` extension.
 After you import the image, you can hit "Import" and then after a few minutes you should see the image in the sidebar of the
-VirtualBox application. Select it, and then press the green "Start" arrow to start up the VM. 
+VirtualBox application. Select it, and then press the green "Start" arrow to start up the VM.
 
-Once you are logged in, you should see a Desktop with the Kali logo in the background. In the top left corner, there is an 
+Once you are logged in, you should see a Desktop with the Kali logo in the background. In the top left corner, there is an
 icon resembling a terminal. Open this, and follow the download steps for Sourcetrail as well as doing `git clone` for the chosen
-target(s). After the target(s) are cloned in the VM, you can build them and move forward with the steps outlined in the [Indexing 
+target(s). After the target(s) are cloned in the VM, you can build them and move forward with the steps outlined in the [Indexing
 in Sourcetrail](https://github.com/alex-maleno/Fuzzing-Module/blob/main/README.md#indexing-and-analysis-in-sourcetrail) section
 
-#### How To Download VMWare 
+#### How To Download VMWare
 
 VMware is a free-to-use, at the personal level, virtual machine software for many potential operating systems. The VMware code can be downloaded for free [here](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html). Once VMWare is installed, it may be used with any potential linux OS which provides a VMWare configuration. In the context of this project, we decided to use Kali, however, any linux version would work insofar as there exists a VMware file for it. Once the virtual machine software has finished installing, one can simply open the Kali, or any other, VM file within the program to run it.
 
 ## How To Download Sourcetrail
-When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented 
-the files in our targets from being indexed properly by Sourcetrail. We remedied the issue by using a virtual machine. 
+When going through the process of building our targets on Windows, we had compatibility issues with Sourcetrail that prevented
+the files in our targets from being indexed properly by Sourcetrail. We remedied the issue by using a virtual machine.
 As mentioned previously, we used Kali Linux with VMWare/VirtualBox, however any VM should work as a solution. If you are not
-familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide. 
+familiar with VMs, we will walk through using Kali Linux with VMWare and VirtualBox in this guide.
 
  - In order to download Sourcetrail, which we can use to walk through and analyze code, go to the
  [Sourcetrail github](https://github.com/CoatiSoftware/Sourcetrail/releases) and download the release that is compatible
- with your operating system. Then run through the setup on your computer and open up the app. 
+ with your operating system. Then run through the setup on your computer and open up the app.
 
 # Phase 2: The First Fuzz  
 
@@ -141,9 +141,9 @@ Estimated Time: 45 Minutes
 
 ## How to create an AFL++ Docker Container
 This is completed in the main OS terminal
- - First, open the Docker desktop app on your computer, otherwise the next step will throw an error. 
+ - First, open the Docker desktop app on your computer, otherwise the next step will throw an error.
  - In your terminal, run the following command `docker pull aflplusplus/aflplusplus`
- - After this command has run, you should be able to open the Docker app and see the AFL++ container under the Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue. 
+ - After this command has run, you should be able to open the Docker app and see the AFL++ container under the Container/Apps tab. Next to the container, it should say `aflplusplus/aflplusplus` in blue.
     - if you do not see a new Container, go to the Images tab (also on the left) and find the most recent aflplusplus/aflplusplus image.  Hover over it, click run on the far right, and then create a new container. Once you have created the container, return to the Container / Apps tab.
  - Hover over that container, and click the play button to start the container (if there is a stop button instead of a play button, then the container is already running).
  - Click on the CLI button, which has ">_" in a circle. This will open a new command line window that is already within your AFL++ docker container.  
@@ -165,7 +165,7 @@ This is completed in the main OS terminal
     - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
     - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]`
         - This error arises when directory names contain space characters
-     
+
 
 
 ## How to Run AFL++ on Problem 1
@@ -186,7 +186,7 @@ This is completed in the target container Docker CLI
     - `dd if=/dev/urandom of=seed_i bs=64 count=10` and repeat this step 5 times, each time changing seed_i (e.g. final files would be seed_0 through seed_4)  
     - `cd ..`  
     - `cd build`
-    
+
 You can read more about the `dd` command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)  
 
 7. Once you have a seed directory, enter the following command:
@@ -211,15 +211,15 @@ Now that you have run AFL++ on Problem 1, we would like you to try to run AFL++ 
 ## How To Use Sourcetrail
 
 - After the project is built, open Sourcetrail and click New Project. Name the project something relevant and in the "Sourcetrail
-Project Location" text box, click the three dots on the right and navigate to the directory where your project lives. After the path 
-is listed in the text box, click "Add Source Group" at the bottom of the window. 
+Project Location" text box, click the three dots on the right and navigate to the directory where your project lives. After the path
+is listed in the text box, click "Add Source Group" at the bottom of the window.
 - In the new pop up, select the "CDB" option if it is a C or C++ project. A new window will pop up. Click the three dots in
-the "Compilation Database" textbox, and navigate to the "compile_commands.json" file within the build folder you created in the 
-target. This will allow the files to be indexed in Sourcetrail. 
-- On a Windows machine, this process is the same, but must be done within the virtual machine. 
-- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code, sublime, etc.) so you can see the files listed out and can navigate the file tree. This will allow you to glance over code and find things that might be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code 
-very quickly). 
-- The best way to find potential entry points in your targets is too look for files dealing with inputs from an outside source	
+the "Compilation Database" textbox, and navigate to the "compile_commands.json" file within the build folder you created in the
+target. This will allow the files to be indexed in Sourcetrail.
+- On a Windows machine, this process is the same, but must be done within the virtual machine.
+- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code, sublime, etc.) so you can see the files listed out and can navigate the file tree. This will allow you to glance over code and find things that might be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code
+very quickly).
+- The best way to find potential entry points in your targets is too look for files dealing with inputs from an outside source
 	- This could look like sensors, GPS systems, user inputs, communication modules, etc.
     - We had success looking at "Mavlink"-related functions and files.
 - After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. You will see the functions in the file and the inputs to those functions. You can click through those things to learn more about them.
@@ -247,7 +247,7 @@ When using AFL++, something that needs to be included in the [wrapper](https://g
 These lines need to be included in your `main` before you read inputs from `STDIN`. They allow AFL++ to have control over the inputs by feeding its inputs through `STDIN`.
 
 ### How to Create a Slice for Problem 3
-In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module... 
+In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module...
 
 ## Challenge: Fuzz Problem 3
 
@@ -259,5 +259,11 @@ TODO
 
 ## Conclusion
 
-TODO
+Through this module, you have learned the basics of fuzzing. We walked through a basic introduction to fuzzing, and important software to download. We also discussed using AFL++ and Docker, and some example problems to fuzz. One of the most important parts of this module is understanding the errors that you ran into while going through our tutorial. Although many potential errors are accounted for in our explanations, knowing where these problems come from is half the battle of understanding how to fuzz because it will provide a foundation for fuzzing much more complex programs, such as flight controller software. If you want to spend more time learning about this, go back through the errors you ran into and things that were missed while walking through the practice problems.
 
+Fuzzing is used consistently in industries like aviation, finance, healthcare, energy, automotive, and more, as security regulations increase across all industries. If you want to learn more about the practical applications of fuzzing in industry, check out these articles:
+
+- [Making fuzzing smarter](https://cybersecurity.springeropen.com/articles/10.1186/s42400-018-0002-y): This paper discusses fuzzing and how it can be made more efficient, smarter, and more state-of-the-art. 
+- [Ethereum Network Vulnerability](https://autobahn.security/post/fuzzing-blockchain-2): how advanced fuzz testing discovered a serious DOS vulnerability in the Ethereum network.
+- [Different types of fuzzing](https://patricegodefroid.github.io/public_psfiles/Fuzzing-101-CACM2020.pdf): This article discussed a few different types of fuzzing - blackbox, whitebox, and grammar-based - and the effectiveness of each.
+- In general...[a list of bugs you can find by fuzzing](https://www.code-intelligence.com/blog/what-bugs-can-you-find-with-fuzzing)
