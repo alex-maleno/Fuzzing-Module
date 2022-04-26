@@ -4,19 +4,29 @@
 #include "maneuvers.h"
 #include "sys_status.h"
 
+// Maneuvers::Maneuvers(){
+//     spec.min_alt();
+//     spec.min_airspeed();
+//     spec.fuel_cap();
+// }
 
+Maneuvers::Maneuvers(Specs *s, Sys_Status *ss){
+    spec->set_alt(s->get_alt());
+    spec->set_fuel(s->get_fuel());
+    spec->set_speed(s->get_speed());
+
+    sys = ss;
+}
 
 void Maneuvers::hover() {
-    int alt = Specs::alt;
     int curr_alt = 500 + rand() % ((3000 + 1 ) - 500);
-    alt = Specs::alt - 100;
-    if(alt < Specs::alt) 
+    if(curr_alt  < spec->get_alt()) 
         std::cout << "too low, increase power" << std::endl;
-    Specs::alt = alt;
+    spec->set_alt(curr_alt);
     int fuel_loss = 1 + rand() % ((20 + 1 ) - 1);
-    Specs::fuel = Specs::fuel - fuel_loss;
-    Sys_Status::check_alt(alt);
-    Sys_Status::check_fuel(fuel);
+    spec->set_fuel(spec->get_fuel() - fuel_loss);
+    sys->check_alt(curr_alt);
+    sys->check_fuel(spec->get_fuel());
 }
 
 void Maneuvers::steep_approach(int speed) {
@@ -26,19 +36,19 @@ void Maneuvers::steep_approach(int speed) {
         std::cout << "warning! rapid deceleration. add power" << std::endl;
     }
     int fuel_loss = 1 + rand() % ((20 + 1 ) - 1);
-    Specs::fuel = Specs::fuel - fuel_loss;
-    Sys_Status::check_speed(speed);
-    Sys_Status::check_fuel(fuel);
+    spec->set_fuel(spec->get_fuel() - fuel_loss);
+    sys->check_speed(speed);
+    sys->check_fuel(spec->get_fuel());
 }
 
 void Maneuvers::quick_stop(){
     int test = 0 + rand() % ((1 + 1) - 0);
     int fuel_loss = 1 + rand() % ((20 + 1 ) - 1);
-    Specs::fuel = Specs::fuel - fuel_loss;
+    spec->set_fuel(spec->get_fuel() - fuel_loss);
     bool decel;
     if (test == 1) {
         decel = true;
         std::cout << "warning! rapid deceleration. add power" << std::endl;
     }
-    Sys_Status::check_fuel(fuel);
+    sys->check_fuel(spec->get_fuel());
 }

@@ -192,7 +192,7 @@ You can read more about the `dd` command at this [Stack Exchange post](https://u
 7. Once you have a seed directory, enter the following command:
     - `/AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable]`
 
-Congratulations, you are now running AFL++ on your target code! There should be a UI in terminal which shows you various statistics about the fuzzing proccess - look for the number of crashes detected.
+Congratulations, you are now running AFL++ on your target code! There should be a UI in terminal which shows you various statistics about the fuzzing process - look for the number of crashes detected.
 
 ## Analyzing the Crashes
 

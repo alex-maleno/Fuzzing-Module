@@ -14,6 +14,7 @@ class Specs {
     public:
         
         Specs();
+        
 
         // user chooses color, pointless function
         void choose_color();
@@ -41,9 +42,10 @@ class Specs {
         //helper
         bool isNumber(std::string str);
 
+    private:
         int alt;
         int speed;
         int fuel;
-    private:
-        
+    
+    friend class Sys_Status;
 };

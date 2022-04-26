@@ -1,5 +1,6 @@
 #pragma once
 
+#include "specs.h"
 
 /*
 * check altitude
@@ -11,6 +12,11 @@
 */
 class Sys_Status {
     public:
+
+        //Sys_Status();
+
+        Sys_Status(Specs *s);
+
         //check if alt is too low based on value entered in specs, flash warning 
         //abort if negative, if too low set back to original
         //this func used in maneuvers, where alt is subtracted when maneuver is executed
@@ -29,6 +35,8 @@ class Sys_Status {
         //abort if negative
         //this func used in maneuvers, where airspeed is subtracted
         int check_speed(int speed);
+    private:
+        Specs *spec;
 };
 
 
