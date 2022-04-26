@@ -22,9 +22,9 @@
 
 2.1 [How to Create an AFL++ Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-an-afl-docker-container)    
 2.2 [How to Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)  
-2.3 [How to Run AFL++ on Problem 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-problem-1)  
+2.3 [How to Run AFL++ on Exercise 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-exercise-1)  
 2.4 [Analyzing the Crashes](https://github.com/alex-maleno/Fuzzing-Module#analyzing-the-crashes)  
-2.5 [Challenge: Fuzz Problem 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-2)  
+2.5 [Challenge: Fuzz Exercise 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-exercise-2)  
 
 
 ## Phase 3: Finding Potential Vulnerabilities
@@ -35,8 +35,8 @@
 ## Phase 4: Fuzzing a Target with a slice
 
 4.1 [How To Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)  
-4.2 [How To Create a Slice for Problem 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-problem-3)  
-4.3 [Challenge: Fuzz Problem 3](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-target-3)  
+4.2 [How To Create a Slice for Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-exercise-3)  
+4.3 [Fuzzing Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#fuzzing-exercise-3)  
 4.4 [Solution: How To Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-3)   
 4.5 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)  
 
@@ -48,7 +48,7 @@ Estimated Time: 2 minutes
 
 ## Introduction
 
-This repository contains a README which explains the concept of fuzzing and why one would want to fuzz.  The README goes on to teach anyone familiar with Computer Science how they can start fuzzing their own projects using the three examples ("problem1", etc.) in the repository. We have designed this module to be completed on a mac system, windows users can still complete the module but will need to use the virtual machines.
+This repository contains a README which explains the concept of fuzzing and why one would want to fuzz.  The README goes on to teach anyone familiar with Computer Science how they can start fuzzing their own projects using the three examples ("exercise1", etc.) in the repository. We have designed this module to be completed on a mac system, windows users can still complete the module but will need to use the virtual machines.
 
 ## What Is Fuzzing?
 
@@ -168,7 +168,7 @@ This is completed in the main OS terminal
 
 
 
-## How to Run AFL++ on Problem 1
+## How to Run AFL++ on Exercise 1
 This is completed in the target container Docker CLI
 1. After starting the docker container, you should be within the `/AFLplusplus` directory. Navigate to the folder of the code you want to fuzz. You will need to go up a directory from `/AFLplusplus` (`cd ..`), and then `cd` into [name of the directory you are adding to the container] from step 4 of "Creating a Container to Fuzz Code".
 2. Create a build directory (standard practice to name it build)
@@ -199,9 +199,9 @@ Congratulations, you are now running AFL++ on your target code! There should be 
 - Once there is at least 1 crash shown in the UI of AFL++, hit `Ctrl + C` to exit AFL++. You can find the inputs that caused the program to crash by traversing to the `out/default/crashes` directory.
 - You can use a bugger, such as `gdb` or `llvm`, to figure out what part of the input actually caused the program to crash. There are also other directories in `out/default` that show you some information gathered during the fuzzing process - feel free to explore them.
 
-## Challenge: Fuzzing Problem 2
+## Challenge: Fuzzing Exercise 2
 
-Now that you have run AFL++ on Problem 1, we would like you to try to run AFL++ on Problem 2 without instruction from the module. If you get stuck, instructions on how to run AFL++ on Problem 2 will be in the `problem2-instructions` directory.
+Now that you have run AFL++ on Exercise 1, we would like you to try to run AFL++ on Exercise 2 without instruction from the module. If you get stuck, instructions on how to run AFL++ on Exercise 2 will be in the `exercise2-instructions` directory.
 
 
 # END OF READ THROUGH
@@ -246,20 +246,42 @@ When using AFL++, something that needs to be included in the [wrapper](https://g
 
 These lines need to be included in your `main` before you read inputs from `STDIN`. They allow AFL++ to have control over the inputs by feeding its inputs through `STDIN`.
 
-### How to Create a Slice for Problem 3
-In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz the `hard` target that we have created for this module...
+### How to Create a Slice for Exercise 3
+In the wrapper, you should include all files that are necessary for the module you are fuzzing to run. Excess files are unnecessary. For example, let's fuzz `exercise3` that we have created for this module...
 
-## Challenge: Fuzz Problem 3
+## Fuzzing Exercise 3
 
-TODO
+The first step in understanding a target is figuring out how all the functions interact. Let's look at this in Sourcetrail (if you haven't downloaded Sourcetrail, follow the instructions [here](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail).
 
-## Solution: How To Fuzz Problem 3
+###
+
+1. In a terminal window, navigate to the `Fuzzing-Module/exercise3` directory.
+    - Note: this terminal window should not be one that is running a Docker container - we will be making a new container for this project. You can close any terminal windows with a Docker container currently running.
+2. Create a `build` directory
+    - `mkdir build`
+3. Go into that `build` directory
+    - `cd build`
+4. Type the following line into the command line:
+    - `cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..`
+    - This line uses CMake to create a JSON file that will tell Sourcetrail how the files interact with each other.
+5. Open up Sourcetrail. On the popup that opens with the app, click "New Project"
+6. Create a name for the project. It doesn't matter what the name of it is, but a good idea of a name would be the name of the code you are analyzing (e.g. "exercise3")
+7. Select the location this Sourcetrail project is going to "live". This will be the top directory of the code you are running, thus for our purposes it is `Fuzzing-Module/exercise3`. Select this folder wherever you cloned this directory to by clicking on the circle with the three dots in it on the right side fo the "Sourcetrail Project Location" bar.
+8. Click the "Add Source Group" button at the bottom of the window.
+9. We want to add a source group for "C/C++ from Compilation Database" - click that option, and then "Next"
+10. In the "Compilation Database" entry box, click the circle with the three dots in it. This should open up the `exercise3` folder. The file we are looking for is `compile_commands.json` within the `build` folder. Select it, and then click "Open".
+11. Click "Create" at the bottom of the popup. This will close the current popup, and cause another popup to appear that is blue. The last step is to index all the files - click "Start"
+
+Once the indexing is done, you will be able to look at a graphical representation of the code! A good place to start is by looking at the files that exist in this 
+
+
+## Solution: How To Fuzz Exercise 3
 
 TODO
 
 ## Conclusion
 
-Through this module, you have learned the basics of fuzzing. We walked through a basic introduction to fuzzing, and important software to download. We also discussed using AFL++ and Docker, and some example problems to fuzz. One of the most important parts of this module is understanding the errors that you ran into while going through our tutorial. Although many potential errors are accounted for in our explanations, knowing where these problems come from is half the battle of understanding how to fuzz because it will provide a foundation for fuzzing much more complex programs, such as flight controller software. If you want to spend more time learning about this, go back through the errors you ran into and things that were missed while walking through the practice problems.
+Through this module, you have learned the basics of fuzzing. We walked through a basic introduction to fuzzing, and important software to download. We also discussed using AFL++ and Docker, and some example exercises to fuzz. One of the most important parts of this module is understanding the errors that you ran into while going through our tutorial. Although many potential errors are accounted for in our explanations, knowing where these exercises come from is half the battle of understanding how to fuzz because it will provide a foundation for fuzzing much more complex programs, such as flight controller software. If you want to spend more time learning about this, go back through the errors you ran into and things that were missed while walking through the practice exercises.
 
 Fuzzing is used consistently in industries like aviation, finance, healthcare, energy, automotive, and more, as security regulations increase across all industries. If you want to learn more about the practical applications of fuzzing in industry, check out these articles:
 

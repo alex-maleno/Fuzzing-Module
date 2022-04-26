@@ -1,5 +1,5 @@
 CMakeFiles/drone.dir/maneuvers.cpp.o: \
-  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/problem3/maneuvers.cpp \
+  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/exercise3/maneuvers.cpp \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread.h \
@@ -230,6 +230,6 @@ CMakeFiles/drone.dir/maneuvers.cpp.o: \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/numeric \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/vector \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__split_buffer \
-  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/problem3/specs.h \
-  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/problem3/maneuvers.h \
-  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/problem3/sys_status.h
+  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/exercise3/specs.h \
+  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/exercise3/maneuvers.h \
+  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/exercise3/sys_status.h

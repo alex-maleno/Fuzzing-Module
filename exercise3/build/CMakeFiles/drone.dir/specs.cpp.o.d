@@ -1,5 +1,5 @@
 CMakeFiles/drone.dir/specs.cpp.o: \
-  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/problem3/specs.cpp \
+  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/exercise3/specs.cpp \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread.h \
@@ -225,4 +225,4 @@ CMakeFiles/drone.dir/specs.cpp.o: \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/bitset \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__bit_reference \
-  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/problem3/specs.h
+  /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/exercise3/specs.h

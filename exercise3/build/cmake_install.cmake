@@ -1,4 +1,4 @@
-# Install script for directory: /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/problem3
+# Install script for directory: /Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/exercise3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/problem3/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/alexmaleno/Desktop/College/Capstone/gitlab/Fuzzing-Module/exercise3/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
