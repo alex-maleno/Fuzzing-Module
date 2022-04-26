@@ -19,40 +19,40 @@ void Specs::choose_color() {
 }
 
 void Specs::min_alt() {
-    std::cout << "enter aircraft minimum altitude: " << std::endl;
-    std::cin >> this->alt;
-    while(this->alt < 500) {
-        if(this->alt < 0)
+    std::cout << "enter aircraft minimum altitude: ";
+    std::cin >> alt;
+    while(alt < 500) {
+        if(alt < 0)
             abort();
-        std::cout << "too low. please re-enter " << std::endl;
-        std::cin >> this->alt;
+        std::cout << "too low. please re-enter: ";
+        std::cin >> alt;
     }
 }
 
 void Specs::min_airspeed() {
-    std::cout << "enter aircraft minimum airspeed: " << std::endl;
-    std::cin >> Specs::speed;
-    while(Specs::speed < 100 || Specs::speed > 200) {
-        if(Specs::speed < 0)
+    std::cout << "enter aircraft minimum airspeed: ";
+    std::cin >> speed;
+    while(speed < 100 || speed > 200) {
+        if(speed < 0)
             abort();
-        if(Specs::speed < 100) {
-            std::cout << "too low. please re-enter " << std::endl;
-            std::cin >> Specs::speed;
-        } else if (Specs::speed > 200) {
-            std::cout << "too high. please re-enter " << std::endl;
-            std::cin >> Specs::speed;
+        if(speed < 100) {
+            std::cout << "too low. please re-enter: ";
+            std::cin >> speed;
+        } else if (speed > 200) {
+            std::cout << "too high. please re-enter: ";
+            std::cin >> speed;
         }
     }
 }
 
 void Specs::fuel_cap() {
-    std::cout << "enter fuel capacity: " << std::endl;
-    std::cin >> Specs::fuel;
-    while(Specs::fuel > 100) {
-        if(Specs::fuel < 0)
+    std::cout << "enter fuel capacity: ";
+    std::cin >> fuel;
+    while(fuel > 100) {
+        if(fuel < 0)
             abort();
-        std::cout << "too high. please re-enter " << std::endl;
-        std::cin >> Specs::fuel;
+        std::cout << "too high. please re-enter: ";
+        std::cin >> fuel;
     }
 }
 

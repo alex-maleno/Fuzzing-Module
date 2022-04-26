@@ -11,10 +11,7 @@
 // }
 
 Maneuvers::Maneuvers(Specs *s, Sys_Status *ss){
-    spec->set_alt(s->get_alt());
-    spec->set_fuel(s->get_fuel());
-    spec->set_speed(s->get_speed());
-
+    spec = s;
     sys = ss;
 }
 

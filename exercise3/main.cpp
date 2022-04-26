@@ -19,11 +19,13 @@ int main() {
     s->min_alt();
     s->min_airspeed();
     s->fuel_cap();
-    std::cerr << "hello" << std::endl;
+    
     Sys_Status sys(s);
-    std::cerr << "hello" << std::endl;
+    
     Maneuvers man(s, &sys);
-    std::cerr << "hello" << std::endl;
+    
+    man.hover();
+    man.quick_stop();
 
     return 0;
 }

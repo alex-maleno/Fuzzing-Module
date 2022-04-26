@@ -10,13 +10,7 @@
 // }
 
 Sys_Status::Sys_Status(Specs *s){
-    std::cerr << "here in sys1" << std::endl;
-    spec->set_alt(s->get_alt());
-    std::cerr << "here in sys2" << std::endl;
-    spec->set_fuel(s->get_fuel());
-    std::cerr << "here in sys3" << std::endl;
-    spec->set_speed(s->get_speed());
-    std::cerr << "here in sys4" << std::endl;
+    spec = s;
 }
 
 int Sys_Status::check_alt(int alt) {
