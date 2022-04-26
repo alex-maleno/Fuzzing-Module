@@ -13,8 +13,8 @@ class Specs {
     */
     public:
         
+        Specs(int a, int f, int s);
         Specs();
-        
 
         // user chooses color, pointless function
         void choose_color();
@@ -47,5 +47,5 @@ class Specs {
         int speed;
         int fuel;
     
-    friend class Sys_Status;
+    
 };

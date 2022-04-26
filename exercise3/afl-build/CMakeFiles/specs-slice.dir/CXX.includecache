@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/exercise3/specs.cpp
+iostream
+-
+stdio.h
+-
+stdlib.h
+-
+string
+-
+specs.h
+/exercise3/specs.h
+
+/exercise3/specs.h
+string
+-
+

@@ -3,12 +3,6 @@
 #include "sys_status.h"
 #include "specs.h"
 
-// Sys_Status::Sys_Status(){
-//     spec.min_alt();
-//     spec.min_airspeed();
-//     spec.fuel_cap();
-// }
-
 Sys_Status::Sys_Status(Specs *s){
     spec = s;
 }

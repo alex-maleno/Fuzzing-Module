@@ -253,7 +253,7 @@ In the wrapper, you should include all files that are necessary for the module y
 
 The first step in understanding a target is figuring out how all the functions interact. Let's look at this in Sourcetrail (if you haven't downloaded Sourcetrail, follow the instructions [here](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail).
 
-###
+### Using Sourcetrail
 
 1. In a terminal window, navigate to the `Fuzzing-Module/exercise3` directory.
     - Note: this terminal window should not be one that is running a Docker container - we will be making a new container for this project. You can close any terminal windows with a Docker container currently running.
@@ -272,8 +272,9 @@ The first step in understanding a target is figuring out how all the functions i
 10. In the "Compilation Database" entry box, click the circle with the three dots in it. This should open up the `exercise3` folder. The file we are looking for is `compile_commands.json` within the `build` folder. Select it, and then click "Open".
 11. Click "Create" at the bottom of the popup. This will close the current popup, and cause another popup to appear that is blue. The last step is to index all the files - click "Start"
 
-Once the indexing is done, you will be able to look at a graphical representation of the code! A good place to start is by looking at the files that exist in this 
+Once the indexing is done, you will be able to look at a graphical representation of the code! A good place to start is by looking at the files that exist in this project.
 
+Use Sourcetrail to analyze the `Sys_Status` class. We have included a sample slice and wrapper for the specs class in the file `specs-slice.cpp`.
 
 ## Solution: How To Fuzz Exercise 3
 
