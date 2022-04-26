@@ -1,4 +1,0 @@
-/exercise3/afl-build/CMakeFiles/rebuild_cache.dir
-/exercise3/afl-build/CMakeFiles/edit_cache.dir
-/exercise3/afl-build/CMakeFiles/specs-slice.dir
-/exercise3/afl-build/CMakeFiles/drone.dir
