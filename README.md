@@ -291,6 +291,9 @@ With a basic understanding of how creating a slice works, we can re-review how t
     - `make`
     - `/AFLplusplus/afl-fuzz -i ../seeds/ -o out -m none -d -- ./specs-slice`
   7. At this point, AFLplsuplus should be running and you should be seeing crashes happen. An important thing to notice is that the executable we are using is `./specs-slice`, which is a small section of our code (the slice). When writing your own slice, you should change this parameter to be the name of whatever file you created the slice in.
+  8. From running AFLplsuplus, there should be ~4 unique crashes. From looking at the code, it is clear that this comes from the `choose_color()` function, which will crash if it takes in any non-numerical inputs. These are the kinds of this to look for in other areas of the program when creating another slice.
+
+  Based on what you have learned about creating a slice from these past sections, take a look at the other files in Exercise 3, and try to create another slice based on other areas of the code which seem vulnerable based on your knowledge of fuzzing. 
 
 ## Conclusion
 
