@@ -203,9 +203,6 @@ Congratulations, you are now running AFL++ on your target code! There should be 
 
 Now that you have run AFL++ on Exercise 1, we would like you to try to run AFL++ on Exercise 2 without instruction from the module. If you get stuck, instructions on how to run AFL++ on Exercise 2 will be in the `exercise2-instructions` directory.
 
-
-# END OF READ THROUGH
-
 # Phase 3: Analyzing Codebases for potential Vulnerabilities
 
 ## How To Use Sourcetrail
@@ -293,7 +290,7 @@ With a basic understanding of how creating a slice works, we can re-review how t
     - `CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`
     - `make`
     - `/AFLplusplus/afl-fuzz -i ../seeds/ -o out -m none -d -- ./specs-slice`
-  7. At this point, AFLplsuplus should be running and you should be seeing crashes happen. An important thing to notice is that the executable we are using is `./specs-slice`, which is a small section of our code (the slice). When writing your own slice, you should change this parameter to be the name of whatever file you created the slice in. 
+  7. At this point, AFLplsuplus should be running and you should be seeing crashes happen. An important thing to notice is that the executable we are using is `./specs-slice`, which is a small section of our code (the slice). When writing your own slice, you should change this parameter to be the name of whatever file you created the slice in.
 
 ## Conclusion
 
