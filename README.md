@@ -165,7 +165,7 @@ This is completed in the main OS terminal
     - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
     - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]`
         - This error arises when directory names contain space characters
-
+    - If you are on a Windows machine (and your directory names do not have space characters), you may have to use the following syntax when running this command, since your system recognizes a different filepath format: `docker run --rm -it -v C:\Users\george\Desktop\Capstone\capstone\medium:/Users/george/Desktop/Capstone/capstone/medium f9a71912b4`
 
 
 ## How to Run AFL++ on Exercise 1
@@ -278,7 +278,22 @@ Use Sourcetrail to analyze the `Sys_Status` class. We have included a sample sli
 
 ## Solution: How To Fuzz Exercise 3
 
-TODO
+With a basic understanding of how creating a slice works, we can re-review how to fuzz Exercise 3, which is slightly different than the other pieces of code that we worked with in this module. There are many different slices that can be created using the code in Exercise 3, so you have to tailor the commands to whatever slice you are using. Aside from this, the majority of the steps will be the same. We can walk through these steps more briefly (these should be done in your regular computer terminal):
+  1. Make sure that AFLplsuplus and docker are running by opening up the docker application and clicking the start button next to the AFLplsuplus docker container.
+  2. Run the following commands:
+    -  `docker ps`
+    - `docker commit [id of afl++ container]`
+  3. go to the /Fuzzing-Module/exercise3 directory and run the following command:
+    - `docker run –rm -it -v $(pwd):/exercise3 [hash from commit two steps before]`. If this syntax does not work, back to the section describing [how to create a target docker container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container) to refresh yourself on other syntax you may need to use.
+  4. Following this, you should be in the AFLplsuplus terminal. Within this terminal, do the following:
+    - `make` the AFLplsuplus executables if needed.
+    - Navigate to the code you added to the AFLplsuplus container by doing `cd ..` and then `cd [added directory]`
+  5. Within this directory, create a `seeds` directory, `cd` into it and create at least 5 seeds, the same way that we did in step 6 of ["How to Run AFL++ on Exercise 1"](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-exercise-1).
+  6. Once you have your 5 seeds, `cd ..` out of the seeds directory and create the `build` directory. Go into this directory and run the following commands:
+    - `CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`
+    - `make`
+    - `/AFLplusplus/afl-fuzz -i ../seeds/ -o out -m none -d -- ./specs-slice`
+  7. At this point, AFLplsuplus should be running and you should be seeing crashes happen. An important thing to notice is that the executable we are using is `./specs-slice`, which is a small section of our code (the slice). When writing your own slice, you should change this parameter to be the name of whatever file you created the slice in. 
 
 ## Conclusion
 
@@ -286,7 +301,7 @@ Through this module, you have learned the basics of fuzzing. We walked through a
 
 Fuzzing is used consistently in industries like aviation, finance, healthcare, energy, automotive, and more, as security regulations increase across all industries. If you want to learn more about the practical applications of fuzzing in industry, check out these articles:
 
-- [Making fuzzing smarter](https://cybersecurity.springeropen.com/articles/10.1186/s42400-018-0002-y): This paper discusses fuzzing and how it can be made more efficient, smarter, and more state-of-the-art. 
+- [Making fuzzing smarter](https://cybersecurity.springeropen.com/articles/10.1186/s42400-018-0002-y): This paper discusses fuzzing and how it can be made more efficient, smarter, and more state-of-the-art.
 - [Ethereum Network Vulnerability](https://autobahn.security/post/fuzzing-blockchain-2): how advanced fuzz testing discovered a serious DOS vulnerability in the Ethereum network.
 - [Different types of fuzzing](https://patricegodefroid.github.io/public_psfiles/Fuzzing-101-CACM2020.pdf): This article discussed a few different types of fuzzing - blackbox, whitebox, and grammar-based - and the effectiveness of each.
 - In general...[a list of bugs you can find by fuzzing](https://www.code-intelligence.com/blog/what-bugs-can-you-find-with-fuzzing)
