@@ -150,7 +150,7 @@ This is completed in the main OS terminal
 
 The following step is completed in the Docker CLI terminal
 
- - You should be in the `AFLplsuplus` directory (you can confirm this with `pwd`). Once there, **`make`** the AFL++ executables. This will take several minutes. Once it is done `make`ing, you can close the CLI.
+ - You should be in the `AFLplusplus` directory (you can confirm this with `pwd`). Once there, **`make`** the AFL++ executables. This will take several minutes. Once it is done `make`ing, you can close the CLI.
 
 
 ## How to create Target Docker Container
@@ -248,7 +248,7 @@ In the wrapper, you should include all files that are necessary for the module y
 
 ## Fuzzing Exercise 3
 
-The first step in understanding a target is figuring out how all the functions interact. Let's look at this in Sourcetrail (if you haven't downloaded Sourcetrail, follow the instructions [here](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail).
+The first step in understanding a target is figuring out how all the functions interact. Let's look at this in Sourcetrail (if you haven't downloaded Sourcetrail, follow the instructions [here](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)).
 
 ### Using Sourcetrail
 
@@ -276,22 +276,22 @@ Use Sourcetrail to analyze the `Sys_Status` class. We have included a sample sli
 ## Solution: How To Fuzz Exercise 3
 
 With a basic understanding of how creating a slice works, we can re-review how to fuzz Exercise 3, which is slightly different than the other pieces of code that we worked with in this module. There are many different slices that can be created using the code in Exercise 3, so you have to tailor the commands to whatever slice you are using. Aside from this, the majority of the steps will be the same. We can walk through these steps more briefly (these should be done in your regular computer terminal):
-  1. Make sure that AFLplsuplus and docker are running by opening up the docker application and clicking the start button next to the AFLplsuplus docker container.
+  1. Make sure that AFLplusplus and docker are running by opening up the docker application and clicking the start button next to the AFLplusplus docker container.
   2. Run the following commands:
     -  `docker ps`
     - `docker commit [id of afl++ container]`
   3. go to the /Fuzzing-Module/exercise3 directory and run the following command:
     - `docker run –rm -it -v $(pwd):/exercise3 [hash from commit two steps before]`. If this syntax does not work, back to the section describing [how to create a target docker container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container) to refresh yourself on other syntax you may need to use.
-  4. Following this, you should be in the AFLplsuplus terminal. Within this terminal, do the following:
-    - `make` the AFLplsuplus executables if needed.
-    - Navigate to the code you added to the AFLplsuplus container by doing `cd ..` and then `cd [added directory]`
+  4. Following this, you should be in the AFLplusplus terminal. Within this terminal, do the following:
+    - `make` the AFLplusplus executables if needed.
+    - Navigate to the code you added to the AFLplusplus container by doing `cd ..` and then `cd [added directory]`
   5. Within this directory, create a `seeds` directory, `cd` into it and create at least 5 seeds, the same way that we did in step 6 of ["How to Run AFL++ on Exercise 1"](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-exercise-1).
   6. Once you have your 5 seeds, `cd ..` out of the seeds directory and create the `build` directory. Go into this directory and run the following commands:
     - `CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`
     - `make`
     - `/AFLplusplus/afl-fuzz -i ../seeds/ -o out -m none -d -- ./specs-slice`
-  7. At this point, AFLplsuplus should be running and you should be seeing crashes happen. An important thing to notice is that the executable we are using is `./specs-slice`, which is a small section of our code (the slice). When writing your own slice, you should change this parameter to be the name of whatever file you created the slice in.
-  8. From running AFLplsuplus, there should be ~4 unique crashes. From looking at the code, it is clear that this comes from the `choose_color()` function, which will crash if it takes in any non-numerical inputs. These are the kinds of this to look for in other areas of the program when creating another slice.
+  7. At this point, AFLplusplus should be running and you should be seeing crashes happen. An important thing to notice is that the executable we are using is `./specs-slice`, which is a small section of our code (the slice). When writing your own slice, you should change this parameter to be the name of whatever file you created the slice in.
+  8. From running AFLplusplus, there should be ~4 unique crashes. From looking at the code, it is clear that this comes from the `choose_color()` function, which will crash if it takes in any non-numerical inputs. These are the kinds of this to look for in other areas of the program when creating another slice.
 
   Based on what you have learned about creating a slice from these past sections, take a look at the other files in Exercise 3, and try to create another slice from other areas of the code which seem vulnerable using your new knowledge of fuzzing. 
 
