@@ -11,7 +11,7 @@
 
 1.1 [Required Software Tools](https://github.com/alex-maleno/Fuzzing-Module#Required-Software-Tools)  
 1.2 [How to Clone Target Code](https://github.com/alex-maleno/Fuzzing-Module#How-to-Clone-Target-code)  
-1.3 [How to Dowload Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-dowload-docker)  
+1.3 [How to Download Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-docker)  
 1.4 [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)  
 1.5 [How to Get Kali Linux](https://github.com/alex-maleno/Fuzzing-Module#How-to-Get-Kali-Linux-(Windows-Only))  
 1.6 [How To Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-virtualbox)  
@@ -82,8 +82,8 @@ We use a number of tools throughout this learning module (with download links as
  -To clone the target code for this module, simply use either the https or ssh clone process for this repository.
  -Clone the target code into wherever you want on your os.
 
-## How to Dowload Docker
- - To download Docker, go to this link on the [Docker wesbite](https://www.docker.com/products/docker-desktop/) and choose the correct operating system and chip. The website should automatically propose the correct software for your system, but download links for other versions will also be availabile on the page.
+## How to Download Docker
+ - To download Docker, go to this link on the [Docker website](https://www.docker.com/products/docker-desktop/) and choose the correct operating system and chip. The website should automatically propose the correct software for your system, but download links for other versions will also be available on the page.
  - After the download is complete, run through the steps in the setup and open the desktop app on your computer.
  - Disclaimer; this may take up a lot of space on your computer
 
@@ -94,7 +94,7 @@ We use a number of tools throughout this learning module (with download links as
 `git clone https://github.com/AFLplusplus/AFLplusplus` in order to clone AFLpluslplus onto you computer.
 
 ## How to Get Kali Linux (Windows Only)
- - For our purposes, we chose Kali Linux as our virtual macine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code.
+ - For our purposes, we chose Kali Linux as our virtual machine, but any other virtual machine should suffice. We used a VM to run Sourcetrail because, while running Sourcetrail on Windows, Sourcetrail was routinely unable to locate the correct path for the code.
  - To do this properly on a Windows machine, simply download your VM of choice - we used VirtualBox or VMWare with a Kali Linux image, all which can be found on the [Kali website](https://www.kali.org/get-kali/#kali-bare-metal) with the VM download on the page just below.
 	- To download the correct Kali image, make sure you are matching your computer architecture with the image you download.
 	Under the Bare Metal header, you can choose 64 or 32-bit images. The recommended image to download is the "Installer"
@@ -214,11 +214,11 @@ is listed in the text box, click "Add Source Group" at the bottom of the window.
 the "Compilation Database" textbox, and navigate to the "compile_commands.json" file within the build folder you created in the
 target. This will allow the files to be indexed in Sourcetrail.
 - On a Windows machine, this process is the same, but must be done within the virtual machine.
-- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code, sublime, etc.) so you can see the files listed out and can navigate the file tree. This will allow you to glance over code and find things that might be interesting to investigate further using Sourcetrail (Sourcetrail has a searchbar, so you can find any function or chunk of code
+- Once everything is indexed in Sourcetrail, open the project in another program for viewing code (like VS code, sublime, etc.) so you can see the files listed out and can navigate the file tree. This will allow you to glance over code and find things that might be interesting to investigate further using Sourcetrail (Sourcetrail has a search bar, so you can find any function or chunk of code
 very quickly).
 - The best way to find potential entry points in your targets is too look for files dealing with inputs from an outside source
 	- This could look like sensors, GPS systems, user inputs, communication modules, etc.
-    - We had success looking at "Mavlink"-related functions and files.
+    - We had success looking at "MAVLink"-related functions and files.
 - After finding a file that could be of interest, navigate to it in Sourcetrail by looking it up. You will see the functions in the file and the inputs to those functions. You can click through those things to learn more about them.
 - In general, its good practice to bookmark things in Soucetrail that look interesting so you can come back to them later.
 
