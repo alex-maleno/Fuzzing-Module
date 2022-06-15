@@ -39,7 +39,7 @@
 4.3 [Fuzzing Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#fuzzing-exercise-3)  
 4.4 [Solution: How To Fuzz Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-exercise-3)   
 4.5 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)  
-
+---
 # Fuzzing-Module
 
 # Phase 0: What is Fuzzing
@@ -48,7 +48,9 @@ Estimated Time: 2 minutes
 
 ## Introduction
 
-This repository contains a README which explains the concept of fuzzing and why one would want to fuzz.  The README goes on to teach anyone familiar with Computer Science how they can start fuzzing their own projects using the three examples ("exercise1", etc.) in the repository. We have designed this module to be completed on a mac system, windows users can still complete the module but will need to use the virtual machines.
+This repository contains a README which explains the concept of fuzzing and why one would want to fuzz.  The README goes on to teach anyone familiar with Computer Science how they can start fuzzing their own projects using the three examples ("exercise1", etc.) in the repository. We have designed this module to be completed on a Mac - Windows users can still complete the module but will need to use the virtual machines. 
+
+Quick note: Fuzzing is an intermediate level topic. Although we include basic instructions, like how to install the tools needed in order to fuzz a target (installing Docker, using Sourcetrail, etc.), to be successful while fuzzing requires some experience. **Knowing how to build different projects is essential in order to fuzz a target, and that is not something that is covered in this module.**
 
 ## What Is Fuzzing?
 
@@ -176,8 +178,8 @@ This is completed in the target container Docker CLI
 3. Change directory into build
     - `cd build`
 4. Add AFL++ tooling to the compiler for your executable:
-    - `CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`
-    - Informational Note: `afl-clang-lto/++` is just one example of compilers you can use with AFL++ - different compilers have different advantages. You can use any of the compilers within the `/AFLplusplus` directory, and the `CXX` variable name is always the same as the `CC` variable, with `++` appended to the end
+    - `CC=/AFLplusplus/afl-clang-fast CXX=/AFLplusplus/afl-clang-fast++ cmake ..`
+    - Informational Note: `afl-clang-fast/++` is just one example of compilers you can use with AFL++ - different compilers have different advantages. You can use any of the compilers within the `/AFLplusplus` directory, and the `CXX` variable name is always the same as the `CC` variable, with `++` appended to the end. You can read more about the different compilers and their advantages within the [AFL++ docs](https://github.com/AFLplusplus/AFLplusplus/tree/stable/instrumentation).
 5. Make the files in build
     - `make`
 6. If you do not already have a seed directory, follow this process to create and populate one using the `dd` command.  If you do have such a directory, skip to step 7.
@@ -287,7 +289,7 @@ With a basic understanding of how creating a slice works, we can re-review how t
     - Navigate to the code you added to the AFLplusplus container by doing `cd ..` and then `cd [added directory]`
   5. Within this directory, create a `seeds` directory, `cd` into it and create at least 5 seeds, the same way that we did in step 6 of ["How to Run AFL++ on Exercise 1"](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-exercise-1).
   6. Once you have your 5 seeds, `cd ..` out of the seeds directory and create the `build` directory. Go into this directory and run the following commands:
-    - `CC=/AFLplusplus/afl-clang-lto CXX=/AFLplusplus/afl-clang-lto++ cmake ..`
+    - `CC=/AFLplusplus/afl-clang-fast CXX=/AFLplusplus/afl-clang-fast++ cmake ..`
     - `make`
     - `/AFLplusplus/afl-fuzz -i ../seeds/ -o out -m none -d -- ./specs-slice`
   7. At this point, AFLplusplus should be running and you should be seeing crashes happen. An important thing to notice is that the executable we are using is `./specs-slice`, which is a small section of our code (the slice). When writing your own slice, you should change this parameter to be the name of whatever file you created the slice in.
