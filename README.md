@@ -37,7 +37,7 @@
 4.1 [How To Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)  
 4.2 [How To Create a Slice for Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-exercise-3)  
 4.3 [Fuzzing Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#fuzzing-exercise-3)  
-4.4 [Solution: How To Fuzz Target 3](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-target-3)   
+4.4 [Solution: How To Fuzz Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-exercise-3)   
 4.5 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)  
 
 # Fuzzing-Module
