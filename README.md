@@ -185,7 +185,7 @@ This is completed in the target container Docker CLI
 6. If you do not already have a seed directory, follow this process to create and populate one using the `dd` command.  If you do have such a directory, skip to step 7.
     - `cd ..`  
     - `mkdir seeds`  
-    - `dd if=/dev/urandom of=seed_i bs=64 count=10` and repeat this step 5 times, each time changing seed_i (e.g. final files would be seed_0 through seed_4)  
+    - `for i in {0..4}; do dd if=/dev/urandom of=seed_$i bs=64 count=10; done`  
     - `cd ..`  
     - `cd build`
 
