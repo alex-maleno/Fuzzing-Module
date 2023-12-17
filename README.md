@@ -3,27 +3,41 @@
 ## Phase 0: What is Fuzzing?
 
 0.1 [Introduction](https://github.com/alex-maleno/Fuzzing-Module#introduction)
+
 0.2 [What Is Fuzzing?](https://github.com/alex-maleno/Fuzzing-Module#what-is-fuzzing)
+
 0.3 [Why Fuzz?](https://github.com/alex-maleno/Fuzzing-Module#why-fuzz)
+
 0.4 [Terms Used Throughout the Module](https://github.com/alex-maleno/Fuzzing-Module#terms-used-throughout-the-module)
 
 ## Phase 1: Setup and Software
 
 1.1 [Required Software Tools](https://github.com/alex-maleno/Fuzzing-Module#Required-Software-Tools)
+
 1.2 [How to Clone Target Code](https://github.com/alex-maleno/Fuzzing-Module#How-to-Clone-Target-code)
+
 1.3 [How to Download Docker](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-docker)
+
 1.4 [How to Clone AFLplusplus](https://github.com/alex-maleno/Fuzzing-Module#how-to-clone-aflplusplus)
+
 1.5 [How to Get Kali Linux](https://github.com/alex-maleno/Fuzzing-Module#How-to-Get-Kali-Linux-(Windows-Only))
+
 1.6 [How to Download VirtualBox](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-virtualbox)
+
 1.7 [How to Download VMware](https://github.com/alex-maleno/Fuzzing-Module#how-to-download-vmware)
+
 1.8 [How to Download SourceTrail](https://github.com/alex-maleno/Fuzzing-Module#How-To-Download-Sourcetrail)
 
 ## Phase 2: The first Fuzz
 
 2.1 [How to Create an AFL++ Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-an-afl-docker-container)
+
 2.2 [How to Create Target Docker Container](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-target-docker-container)
+
 2.3 [How to Run AFL++ on Exercise 1](https://github.com/alex-maleno/Fuzzing-Module#how-to-run-afl-on-exercise-1)
+
 2.4 [Analyzing the Crashes](https://github.com/alex-maleno/Fuzzing-Module#analyzing-the-crashes)
+
 2.5 [Challenge: Fuzz Exercise 2](https://github.com/alex-maleno/Fuzzing-Module#challenge-fuzz-exercise-2)
 
 
@@ -35,9 +49,13 @@
 ## Phase 4: Fuzzing a Target with a slice
 
 4.1 [How to Create a Slice](https://github.com/alex-maleno/Fuzzing-Module#How-To-Create-a-Slice)
+
 4.2 [How to Create a Slice for Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#how-to-create-a-slice-for-exercise-3)
+
 4.3 [Fuzzing Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#fuzzing-exercise-3)
+
 4.4 [Solution: How to Fuzz Exercise 3](https://github.com/alex-maleno/Fuzzing-Module#solution-how-to-fuzz-exercise-3)
+
 4.5 [Conclusion](https://github.com/alex-maleno/Fuzzing-Module#conclusion)
 ---
 # Fuzzing-Module
