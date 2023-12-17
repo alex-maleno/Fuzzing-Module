@@ -189,11 +189,11 @@ This is completed in the target container Docker CLI:
     - Informational Note: `afl-clang-fast/++` is just one example of compilers you can use with AFL++ - different compilers have different advantages. You can use any of the compilers within the `/AFLplusplus` directory, and the `CXX` variable name is always the same as the `CC` variable, with `++` appended to the end. You can read more about the different compilers and their advantages within the [AFL++ docs](https://github.com/AFLplusplus/AFLplusplus/tree/stable/instrumentation).
 5. Make the files in build
     - `make`
-6. If you do not already have a seed directory, follow this process to create and populate one using the `dd` command. If you do have such a directory, skip to step 7.
-    - `cd ..`
-    - `mkdir seeds`
-    - `dd if=/dev/urandom of=seed_i bs=64 count=10` and repeat this step 5 times, each time changing seed_i (e.g., final files would be seed_0 through seed_4)
-    - `cd ..`
+6. If you do not already have a seed directory, follow this process to create and populate one using the `dd` command.  If you do have such a directory, skip to step 7.
+    - `cd ..`  
+    - `mkdir seeds`  
+    - `for i in {0..4}; do dd if=/dev/urandom of=seed_$i bs=64 count=10; done`  
+    - `cd ..`  
     - `cd build`
 
 You can read more about the `dd` command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data).
