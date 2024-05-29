@@ -9,7 +9,7 @@
     - If you don't want to navigate to the directory of the code you want to fuzz, you can replace $(pwd) with the *full path to the directory you want to fuzz, starting at your home directory*
     - If the terminal prints the following error: _docker: `invalid reference format: repository name must be lowercase`, add "quotation marks" around the `$(pwd):/\[directory\]`
         - This error arises when directory names contain space characters
-    - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium":"/Users/george/Desktop/CS Capstone/capstone/medium" f9a71912b4` 
+    - For example, the complete command looks something like the following for one of the authors of this repository: `docker run --rm -it -v "/Users/george/Desktop/CS Capstone/capstone/medium":"/Users/george/Desktop/CS Capstone/capstone/medium" f9a71912b4`
 
 
 ## How to Run AFL++ on Problem 2
@@ -25,12 +25,13 @@
 5. Make the files in build
     - `make`
 6. If you do not already have a seed directory, follow this process to create and populate one using the `dd` command.  If you do have such a directory, skip to step 7.
-        - `cd ..`
-        - `mkdir seeds`
-        - `dd if=/dev/urandom of=seed_i bs=64 count=10`
-        - repeat the above step 5 times, each time changing seed_i (e.g. final files would be seed_0 through seed_4)
-        - `cd ..`
-        - `cd build`
+
+    - `cd ..`
+    - `mkdir seeds`
+    - `for i in {0..4}; do dd if=/dev/urandom of=seed_$i bs=64 count=10; done`
+    - `cd ..`
+    - `cd build`
+
     - You can read more about the `dd` command at this [Stack Exchange post](https://unix.stackexchange.com/questions/33629/how-can-i-populate-a-file-with-random-data)
 7. Once you have a seed directory, enter the following command:
     - `/AFLplusplus/afl-fuzz -i [full path to your seeds directory] -o out -m none -d -- [full path to the executable]`
